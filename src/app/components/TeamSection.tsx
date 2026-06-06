@@ -1,29 +1,29 @@
 const teamMembers = [
   {
-    name: "Nguyễn Văn A",
-    role: "Gốc Rễ Lý Luận",
-    color: "burgundy",
-    avatar: "NA"
+    name: 'Đồng Thành Minh Trí',
+    role: 'SE184190',
+    color: 'burgundy',
+    avatar: 'MT',
   },
   {
-    name: "Trần Thị B",
-    role: "Điểm Hẹn Giao Thoa",
-    color: "ochre",
-    avatar: "TB"
+    name: 'Đặng Đinh Thiên Lân',
+    role: 'SE171568',
+    color: 'ochre',
+    avatar: 'TL',
   },
   {
-    name: "Lê Văn C",
-    role: "Mặt Trận Ánh Sáng",
-    color: "terracotta",
-    avatar: "LC"
+    name: 'Nguyễn Mai Anh',
+    role: 'SA180169',
+    color: 'terracotta',
+    avatar: 'MA',
   },
   {
-    name: "Phạm Thị D",
-    role: "Khát Vọng Vươn Xa",
-    color: "teal",
-    avatar: "PD"
-  }
-];
+    name: 'Nguyễn Hoàng Phi Long',
+    role: 'SE170237',
+    color: 'teal',
+    avatar: 'PL',
+  },
+]
 
 const colorClasses: Record<string, string> = {
   burgundy: "bg-burgundy text-white",

@@ -1,7 +1,37 @@
 import { Link } from "react-router";
 import { ChevronDown } from "lucide-react";
 import { BronzeDrumIcon } from "../components/BronzeDrumIcon";
+import { ImagePlaceholder } from "../components/ImagePlaceholder";
 import { motion } from "motion/react";
+
+const heroGallery = [
+  {
+    figId: 'H.0.1',
+    label: 'Bác Hồ với nhân dân',
+    hint: '4:3 · ~800×600px',
+    file: '/images/hero/HoChiMInhvaNhanDan.jpg',
+    source: 'Bộ Văn hóa, Thể thao và Du lịch Việt Nam',
+    sourceUrl:
+      'https://bvhttdl.gov.vn/ho-chi-minh-nha-van-hoa-kiet-xuat-621594.htm',
+  },
+  {
+    figId: 'H.0.2',
+    label: 'Văn hóa truyền thống Việt Nam',
+    hint: '4:3 · ~800×600px',
+    file: '/images/hero/LeHoiTruyenThongVN.jpg',
+    source: 'Lễ hội truyền thống nổi tiếng ở Việt Nam',
+    sourceUrl: 'https://cellphones.com.vn/sforum/cac-le-hoi-o-viet-nam',
+  },
+  {
+    figId: 'H.0.3',
+    label: 'Di sản nghệ thuật dân tộc',
+    hint: '4:3 · ~800×600px',
+    file: '/images/hero/NgheThuatDanGianViet.jpg',
+    source: 'UNESCO Việt Nam',
+    sourceUrl:
+      'https://travel.com.vn/tin-tuc-du-lich/loai-hinh-nghe-thuat-van-hoa-dan-gian-viet-nam-v17058.aspx',
+  },
+]
 
 export function Hero() {
   return (
@@ -45,6 +75,36 @@ export function Hero() {
           </Link>
         </motion.div>
       </div>
+
+      {/* Gallery Strip */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.5 }}
+        className="relative px-6 pb-6 w-full max-w-5xl mx-auto"
+      >
+        <div className="grid grid-cols-3 gap-4">
+          {heroGallery.map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 + i * 0.15 }}
+            >
+              <ImagePlaceholder
+                figId={item.figId}
+                label={item.label}
+                hint={item.hint}
+                color="burgundy"
+                source={item.source}
+                sourceUrl={item.sourceUrl}
+                src={item.file}
+                className="aspect-[4/3] shadow-lg"
+              />
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
 
       {/* Scroll indicator */}
       <div className="relative pb-8 flex justify-center">

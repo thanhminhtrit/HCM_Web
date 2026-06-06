@@ -1,18 +1,40 @@
 import { motion } from 'motion/react'
 import { useState } from 'react'
+import { ImagePlaceholder } from '../components/ImagePlaceholder'
 
 const flipCards = [
   {
     front: 'Tính Dân tộc',
     back: 'Thể hiện tinh thần độc lập, tự cường, phát huy các giá trị truyền thống tốt đẹp của cha ông, phù hợp với tâm lý và cốt cách người Việt.',
+    figId: 'H.3.3',
+    imageLabel: 'Văn hóa dân tộc – Bản sắc và cốt cách Việt Nam',
+    imageHint: '4:3 · ~800×600px',
+    source: 'Bảo tàng Dân tộc học Việt Nam',
+    sourceUrl: 'https://vme.org.vn',
+    color: '#7B1E2B',
+    colorVariant: 'burgundy' as const,
   },
   {
     front: 'Tính Khoa học',
     back: 'Đòi hỏi nền văn hóa phải tiên tiến, hiện đại, dựa trên nền tảng của tư duy khoa học biện chứng, kiên quyết chống lại tư tưởng phong kiến hủ bại, mê tín dị đoan.',
+    figId: 'H.3.4',
+    imageLabel: 'Phong trào khoa học – Giáo dục tiến bộ Việt Nam',
+    imageHint: '4:3 · ~800×600px',
+    source: 'Trung tâm Lưu trữ Quốc gia III',
+    sourceUrl: 'https://archives.org.vn',
+    color: '#B5562E',
+    colorVariant: 'terracotta' as const,
   },
   {
     front: 'Tính Đại chúng',
     back: 'Nền văn hóa phải thuộc về nhân dân, phục vụ đại đa số quần chúng nhân dân lao động, làm cho nhân dân dễ hiểu, dễ tiếp cận và trực tiếp làm chủ.',
+    figId: 'H.3.5',
+    imageLabel: 'Nhân dân lao động – Chủ thể của nền văn hóa mới',
+    imageHint: '4:3 · ~800×600px',
+    source: 'Bảo tàng Lịch sử Quốc gia',
+    sourceUrl: 'https://baotanglichsu.vn',
+    color: '#C99A3B',
+    colorVariant: 'ochre' as const,
   },
 ]
 
@@ -32,11 +54,11 @@ export function MatTranAnhSang() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-burgundy/10 via-ivory to-terracotta/10 py-16 px-6">
       <div className="max-w-6xl mx-auto">
-        {/* Header with propaganda poster aesthetic */}
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-16 text-center"
+          className="mb-10 text-center"
         >
           <div className="inline-block bg-burgundy text-white px-8 py-2 mb-6 rotate-[-2deg]">
             <span className="font-display text-sm tracking-widest uppercase">
@@ -53,6 +75,24 @@ export function MatTranAnhSang() {
           </p>
         </motion.div>
 
+        {/* Propaganda Poster Image — full width */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.98 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.15 }}
+          className="mb-16"
+        >
+          <ImagePlaceholder
+            figId="H.3.1"
+            label="Poster tuyên truyền văn hóa kháng chiến – Hội nghị Văn hóa toàn quốc 1946"
+            hint="Tranh tuyên truyền / ảnh tư liệu · 16:6 · ~1600×600px"
+            color="terracotta"
+            source="Bảo tàng Lịch sử Quốc gia"
+            sourceUrl="https://baotanglichsu.vn"
+            className="aspect-[16/6]"
+          />
+        </motion.div>
+
         {/* Pull Quote */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
@@ -61,9 +101,7 @@ export function MatTranAnhSang() {
           className="mb-16 relative"
         >
           <div className="bg-burgundy text-white rounded-3xl p-12 shadow-2xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 text-[200px] font-display leading-none opacity-10">
-              "
-            </div>
+            <div className="absolute top-0 right-0 text-[200px] font-display leading-none opacity-10">"</div>
             <p className="font-quote italic text-2xl md:text-3xl leading-relaxed relative z-10 mb-6">
               Văn hóa là một mặt trận - Nghệ sĩ là chiến sĩ
             </p>
@@ -78,9 +116,10 @@ export function MatTranAnhSang() {
           transition={{ delay: 0.4 }}
           className="mb-16"
         >
-          <h2 className="font-display text-3xl text-burgundy mb-8 text-center">
+          <h2 className="font-display text-3xl text-burgundy mb-3 text-center">
             3 Tính chất cốt lõi của văn hóa mới
           </h2>
+          <p className="text-center text-soft-text mb-8">Nhấn vào thẻ để xem chi tiết</p>
           <div className="grid md:grid-cols-3 gap-6">
             {flipCards.map((card, index) => {
               const isFlipped = flippedCards.has(index)
@@ -90,72 +129,55 @@ export function MatTranAnhSang() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 + index * 0.1 }}
-                  className="perspective-1000"
                   style={{ perspective: '1000px' }}
                 >
                   <div
                     onClick={() => toggleCard(index)}
-                    className="relative h-80 cursor-pointer"
-                    style={{
-                      transformStyle: 'preserve-3d',
-                      transition: 'transform 0.6s',
-                    }}
+                    className="relative cursor-pointer"
+                    style={{ transformStyle: 'preserve-3d', transition: 'transform 0.6s' }}
                   >
                     {/* Front */}
                     <div
-                      className={`absolute inset-0 rounded-2xl p-8 flex items-center justify-center text-center transition-all ${
-                        isFlipped
-                          ? 'opacity-0 pointer-events-none'
-                          : 'opacity-100'
+                      className={`rounded-2xl overflow-hidden transition-all ${
+                        isFlipped ? 'opacity-0 pointer-events-none' : 'opacity-100'
                       }`}
                       style={{
                         backfaceVisibility: 'hidden',
-                        transform: isFlipped
-                          ? 'rotateY(180deg)'
-                          : 'rotateY(0deg)',
-                        backgroundColor:
-                          index === 0
-                            ? '#7B1E2B'
-                            : index === 1
-                              ? '#B5562E'
-                              : '#C99A3B',
+                        transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
+                        backgroundColor: card.color,
                       }}
                     >
-                      <div>
+                      <ImagePlaceholder
+                        figId={card.figId}
+                        label={card.imageLabel}
+                        hint={card.imageHint}
+                        color={card.colorVariant}
+                        source={card.source}
+                        sourceUrl={card.sourceUrl}
+                        className="aspect-[4/3] rounded-none border-0 border-b-2"
+                      />
+                      <div className="p-8 text-center">
                         <h3 className="font-display text-3xl text-white leading-tight">
                           {card.front}
                         </h3>
-                        <p className="text-white/60 text-sm mt-4">
-                          Nhấn để xem thêm
-                        </p>
+                        <p className="text-white/60 text-sm mt-4">Nhấn để xem thêm</p>
                       </div>
                     </div>
 
                     {/* Back */}
                     <div
                       className={`absolute inset-0 bg-white rounded-2xl p-8 flex items-center justify-center text-center border-4 transition-all ${
-                        !isFlipped
-                          ? 'opacity-0 pointer-events-none'
-                          : 'opacity-100'
+                        !isFlipped ? 'opacity-0 pointer-events-none' : 'opacity-100'
                       }`}
                       style={{
                         backfaceVisibility: 'hidden',
-                        transform: !isFlipped
-                          ? 'rotateY(-180deg)'
-                          : 'rotateY(0deg)',
-                        borderColor:
-                          index === 0
-                            ? '#7B1E2B'
-                            : index === 1
-                              ? '#B5562E'
-                              : '#C99A3B',
+                        transform: !isFlipped ? 'rotateY(-180deg)' : 'rotateY(0deg)',
+                        borderColor: card.color,
                       }}
                     >
                       <div>
                         <p className="text-ink leading-relaxed">{card.back}</p>
-                        <p className="text-soft-text text-sm mt-4">
-                          Nhấn để quay lại
-                        </p>
+                        <p className="text-soft-text text-sm mt-4">Nhấn để quay lại</p>
                       </div>
                     </div>
                   </div>
@@ -172,7 +194,7 @@ export function MatTranAnhSang() {
           transition={{ delay: 0.8 }}
           className="bg-white rounded-3xl p-8 md:p-12 shadow-xl"
         >
-          <div className="grid md:grid-cols-2 gap-8 items-center">
+          <div className="grid md:grid-cols-2 gap-8 items-start">
             <div>
               <div className="w-20 h-1 bg-burgundy mb-6" />
               <h3 className="font-display text-3xl text-burgundy mb-6">
@@ -190,8 +212,26 @@ export function MatTranAnhSang() {
                   tham nhũng và thói hư tật xấu.
                 </p>
               </div>
+              <ImagePlaceholder
+                figId="H.3.2"
+                label="Văn nghệ sĩ trong kháng chiến – Ngòi bút là vũ khí"
+                hint="Ảnh tư liệu · 16:9 · ~800×450px"
+                color="burgundy"
+                source="Bảo tàng Lịch sử Quốc gia"
+                sourceUrl="https://baotanglichsu.vn"
+                className="aspect-video mt-6"
+              />
             </div>
             <div className="bg-terracotta/10 rounded-2xl p-8 border-l-4 border-terracotta">
+              <ImagePlaceholder
+                figId="H.3.6"
+                label="Hội nghị Văn hóa toàn quốc lần thứ nhất (1946)"
+                hint="Ảnh tư liệu · 4:3 · ~800×600px"
+                color="terracotta"
+                source="Trung tâm Lưu trữ Quốc gia III"
+                sourceUrl="https://archives.org.vn"
+                className="aspect-[4/3] mb-6"
+              />
               <ul className="space-y-4">
                 {[
                   'Nghệ thuật phải phục vụ nhân dân',

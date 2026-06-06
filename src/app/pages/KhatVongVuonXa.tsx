@@ -1,6 +1,7 @@
 import { Pause, Play } from 'lucide-react'
 import { motion } from 'motion/react'
 import { useState } from 'react'
+import { ImagePlaceholder } from '../components/ImagePlaceholder'
 
 const podcasts = [
   {
@@ -9,6 +10,10 @@ const podcasts = [
     duration: '12:34',
     topic:
       'Sử dụng công nghệ đồ họa, truyền thông MXH để quảng bá ẩm thực, lịch sử và âm nhạc truyền thống Việt ra thế giới.',
+    figId: 'H.4.4',
+    imageLabel: 'Ảnh đại diện – Minh An',
+    imageHint: '1:1 · ~200×200px',
+    source: 'Ảnh cá nhân thành viên nhóm',
   },
   {
     title: 'Mặt trận An ninh tư tưởng số',
@@ -16,6 +21,10 @@ const podcasts = [
     duration: '15:22',
     topic:
       'Sàng lọc tin giả, kiên định phản bác luận điệu xuyên tạc về lịch sử và lãnh tụ trên TikTok, Facebook.',
+    figId: 'H.4.5',
+    imageLabel: 'Ảnh đại diện – Quang Huy',
+    imageHint: '1:1 · ~200×200px',
+    source: 'Ảnh cá nhân thành viên nhóm',
   },
   {
     title: 'Nghệ thuật vì cộng đồng',
@@ -23,12 +32,53 @@ const podcasts = [
     duration: '10:45',
     topic:
       'Chuyển hóa dữ liệu lịch sử thành sản phẩm giải trí số hấp dẫn nhưng vẫn chuẩn mực.',
+    figId: 'H.4.6',
+    imageLabel: 'Ảnh đại diện – Thu Hà',
+    imageHint: '1:1 · ~200×200px',
+    source: 'Ảnh cá nhân thành viên nhóm',
   },
   {
     title: 'Văn hóa khởi nghiệp',
     speaker: 'Phương Linh, 24 tuổi',
     duration: '13:56',
     topic: 'Xây dựng văn hóa doanh nghiệp theo tư tưởng đạo đức HCM',
+    figId: 'H.4.7',
+    imageLabel: 'Ảnh đại diện – Phương Linh',
+    imageHint: '1:1 · ~200×200px',
+    source: 'Ảnh cá nhân thành viên nhóm',
+  },
+]
+
+const visionItems = [
+  {
+    icon: '🌍',
+    title: 'Toàn cầu hóa',
+    desc: 'Hội nhập quốc tế với bản sắc Việt',
+    figId: 'H.4.2',
+    imageLabel: 'Việt Nam hội nhập quốc tế – Ngoại giao văn hóa',
+    imageHint: '16:9 · ~600×337px',
+    source: 'TTXVN (Vietnam News Agency)',
+    sourceUrl: 'https://vnanet.vn',
+  },
+  {
+    icon: '💡',
+    title: 'Đổi mới sáng tạo',
+    desc: 'Văn hóa số và công nghệ',
+    figId: 'H.4.3',
+    imageLabel: 'Chuyển đổi số – Văn hóa công nghệ Việt Nam',
+    imageHint: '16:9 · ~600×337px',
+    source: 'Bộ Thông tin và Truyền thông',
+    sourceUrl: 'https://mic.gov.vn',
+  },
+  {
+    icon: '🚀',
+    title: 'Tương lai 2045',
+    desc: 'Xây dựng thế hệ văn hóa mới',
+    figId: 'H.4.4',
+    imageLabel: 'Thế hệ trẻ Việt Nam – Khát vọng 2045',
+    imageHint: '16:9 · ~600×337px',
+    source: 'TTXVN (Vietnam News Agency)',
+    sourceUrl: 'https://vnanet.vn',
   },
 ]
 
@@ -46,7 +96,7 @@ export function KhatVongVuonXa() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-16 text-center"
+          className="mb-10 text-center"
         >
           <div className="inline-flex items-center gap-2 text-ochre mb-6">
             <div className="h-px w-12 bg-ochre" />
@@ -65,6 +115,24 @@ export function KhatVongVuonXa() {
           </p>
         </motion.div>
 
+        {/* Featured Header Image */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.15 }}
+          className="mb-16"
+        >
+          <ImagePlaceholder
+            figId="H.4.1"
+            label="Đại hội XIII – Khát vọng Việt Nam hùng cường đến 2045"
+            hint="Ảnh sự kiện · 16:6 · ~1600×600px"
+            color="teal"
+            source="TTXVN (Vietnam News Agency)"
+            sourceUrl="https://vnanet.vn"
+            className="aspect-[16/6]"
+          />
+        </motion.div>
+
         {/* Vision Cards */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -72,35 +140,30 @@ export function KhatVongVuonXa() {
           transition={{ delay: 0.2 }}
           className="grid md:grid-cols-3 gap-6 mb-16"
         >
-          {[
-            {
-              icon: '🌍',
-              title: 'Toàn cầu hóa',
-              desc: 'Hội nhập quốc tế với bản sắc Việt',
-            },
-            {
-              icon: '💡',
-              title: 'Đổi mới sáng tạo',
-              desc: 'Văn hóa số và công nghệ',
-            },
-            {
-              icon: '🚀',
-              title: 'Tương lai',
-              desc: 'Xây dựng thế hệ văn hóa mới',
-            },
-          ].map((item, index) => (
+          {visionItems.map((item, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 + index * 0.1 }}
-              className="bg-gradient-to-br from-teal/20 to-burgundy/20 backdrop-blur-sm border border-ochre/30 rounded-2xl p-6 hover:border-ochre transition-all hover:scale-105"
+              className="bg-gradient-to-br from-teal/20 to-burgundy/20 backdrop-blur-sm border border-ochre/30 rounded-2xl overflow-hidden hover:border-ochre transition-all hover:scale-105"
             >
-              <div className="text-5xl mb-4">{item.icon}</div>
-              <h3 className="font-display text-xl text-ochre mb-2">
-                {item.title}
-              </h3>
-              <p className="text-gray-300 text-sm">{item.desc}</p>
+              <ImagePlaceholder
+                figId={item.figId}
+                label={item.imageLabel}
+                hint={item.imageHint}
+                color="teal"
+                source={item.source}
+                sourceUrl={item.sourceUrl}
+                className="aspect-video rounded-none border-0 border-b border-ochre/20"
+              />
+              <div className="p-6">
+                <div className="text-4xl mb-3">{item.icon}</div>
+                <h3 className="font-display text-xl text-ochre mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-gray-300 text-sm">{item.desc}</p>
+              </div>
             </motion.div>
           ))}
         </motion.div>
@@ -131,48 +194,59 @@ export function KhatVongVuonXa() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.7 + index * 0.1 }}
-                  className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-6 border border-gray-700 hover:border-ochre/50 transition-all"
+                  className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl border border-gray-700 hover:border-ochre/50 transition-all overflow-hidden"
                 >
-                  <div className="flex items-start gap-4">
-                    <button
-                      onClick={() => togglePlay(index)}
-                      className={`flex-shrink-0 w-14 h-14 rounded-full flex items-center justify-center transition-all ${
-                        isPlaying
-                          ? 'bg-ochre text-dark-bg'
-                          : 'bg-ochre/20 text-ochre hover:bg-ochre/30'
-                      }`}
-                    >
-                      {isPlaying ? (
-                        <Pause className="w-6 h-6" />
-                      ) : (
-                        <Play className="w-6 h-6 ml-1" />
-                      )}
-                    </button>
+                  {/* Podcast thumbnail banner */}
+                  <ImagePlaceholder
+                    figId={podcast.figId}
+                    label={podcast.imageLabel}
+                    hint={podcast.imageHint}
+                    color="ochre"
+                    source={podcast.source}
+                    className="aspect-[3/1] rounded-none border-0 border-b border-gray-700"
+                  />
+                  <div className="p-6">
+                    <div className="flex items-start gap-4">
+                      <button
+                        onClick={() => togglePlay(index)}
+                        className={`flex-shrink-0 w-14 h-14 rounded-full flex items-center justify-center transition-all ${
+                          isPlaying
+                            ? 'bg-ochre text-dark-bg'
+                            : 'bg-ochre/20 text-ochre hover:bg-ochre/30'
+                        }`}
+                      >
+                        {isPlaying ? (
+                          <Pause className="w-6 h-6" />
+                        ) : (
+                          <Play className="w-6 h-6 ml-1" />
+                        )}
+                      </button>
 
-                    <div className="flex-1 min-w-0">
-                      <h3 className="font-display text-lg text-white mb-1 truncate">
-                        {podcast.title}
-                      </h3>
-                      <p className="text-ochre text-sm mb-2">
-                        {podcast.speaker}
-                      </p>
-                      <p className="text-gray-400 text-sm leading-relaxed mb-3">
-                        {podcast.topic}
-                      </p>
-                      <div className="flex items-center gap-3">
-                        <div className="flex-1 h-1 bg-gray-700 rounded-full overflow-hidden">
-                          {isPlaying && (
-                            <motion.div
-                              className="h-full bg-ochre"
-                              initial={{ width: '0%' }}
-                              animate={{ width: '60%' }}
-                              transition={{ duration: 2 }}
-                            />
-                          )}
+                      <div className="flex-1 min-w-0">
+                        <h3 className="font-display text-lg text-white mb-1 truncate">
+                          {podcast.title}
+                        </h3>
+                        <p className="text-ochre text-sm mb-2">
+                          {podcast.speaker}
+                        </p>
+                        <p className="text-gray-400 text-sm leading-relaxed mb-3">
+                          {podcast.topic}
+                        </p>
+                        <div className="flex items-center gap-3">
+                          <div className="flex-1 h-1 bg-gray-700 rounded-full overflow-hidden">
+                            {isPlaying && (
+                              <motion.div
+                                className="h-full bg-ochre"
+                                initial={{ width: '0%' }}
+                                animate={{ width: '60%' }}
+                                transition={{ duration: 2 }}
+                              />
+                            )}
+                          </div>
+                          <span className="text-xs text-gray-500">
+                            {podcast.duration}
+                          </span>
                         </div>
-                        <span className="text-xs text-gray-500">
-                          {podcast.duration}
-                        </span>
                       </div>
                     </div>
                   </div>

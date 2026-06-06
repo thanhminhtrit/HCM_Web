@@ -1,5 +1,6 @@
 import { motion } from 'motion/react'
 import { useState } from 'react'
+import { ImagePlaceholder } from '../components/ImagePlaceholder'
 
 const approaches = [
   {
@@ -21,6 +22,45 @@ const approaches = [
     title: 'Tiếp cận theo phương thức sử dụng',
     content:
       'Văn hóa là lối sống, nếp sống, phong cách sống, văn hóa ứng xử và cốt cách sinh hoạt hằng ngày của con người.',
+  },
+]
+
+const galleryImages = [
+  {
+    figId: 'H.1.3',
+    label: 'Hồ Chí Minh tại Quảng Tây (1942–1943)',
+    hint: '3:2 · ~900×600px',
+    source: 'Nghiên Cứu Quốc Tế',
+    src: '/images/goc-re-ly-luan/HCMQuangTay1942.jpg',
+    sourceUrl:
+      'https://nghiencuuquocte.org/2025/05/20/mot-giai-doan-quan-trong-trong-cuoc-doi-chu-tich-ho-chi-minh-tai-quang-tay/',
+  },
+  {
+    figId: 'H.1.4',
+    label: 'Bình dân học vụ – Xóa nạn mù chữ 1945',
+    hint: '3:2 · ~900×600px',
+    source: 'Tạp Chí Lịch sử Đảng Việt Nam',
+    src: '/images/goc-re-ly-luan/BinhDanHocVuXoaMuChu1945.jpg',
+    sourceUrl:
+      'https://tapchilichsudang.vn/phong-trao-binh-dan-hoc-vu-1945-1946.html',
+  },
+  {
+    figId: 'H.1.5',
+    label: 'Văn hóa dân gian Việt Nam',
+    hint: '3:2 · ~900×600px',
+    source: 'VOV',
+    src: '/images/goc-re-ly-luan/VanHoaDanGianVN.webp',
+    sourceUrl:
+      'https://vov2.vov.vn/van-hoa-giai-tri/van-hoa-dan-gian-trong-doi-song-duong-dai-24396.vov2',
+  },
+  {
+    figId: 'H.1.6',
+    label: 'Phong trào văn hóa kháng chiến',
+    hint: '3:2 · ~900×600px',
+    source: 'Trạm Thông Tin Điện Tử',
+    src: '/images/goc-re-ly-luan/VanHoavaKhangChien.jpg',
+    sourceUrl:
+      'https://ngheandost.gov.vn/khxhnvna/dien-dan-khxh-nv/van-hoa-van-nghe-nghe-an-trong-khang-chien-chong-phap-den-thang-loi-dien-bien-phu-lay-lung-1945-1954-112.html',
   },
 ]
 
@@ -46,28 +86,40 @@ export function GocReLyLuan() {
           </p>
         </motion.div>
 
-        {/* Quote Block - 1943 Definition */}
+        {/* Quote Block — 2 columns: portrait image + quote */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="bg-burgundy/5 border-l-4 border-burgundy rounded-r-2xl p-8 mb-12"
+          className="grid md:grid-cols-2 gap-8 items-stretch mb-12"
         >
-          <div className="flex items-start gap-4">
-            <span className="text-6xl text-burgundy/30 font-quote leading-none">
-              "
-            </span>
-            <div>
-              <p className="font-quote italic text-lg text-ink leading-relaxed mb-4">
-                Vì lẽ sinh tồn cũng như mục đích của cuộc sống, loài người mới
-                sáng tạo và phát minh ra ngôn ngữ, chữ viết, đạo đức, pháp luật,
-                khoa học, tôn giáo, văn học, nghệ thuật, những công cụ cho sinh
-                hoạt hằng ngày về mặc, ăn, ở và các phương thức sử dụng. Toàn bộ
-                những sáng tạo và phát minh đó tức là văn hóa.
-              </p>
-              <p className="text-burgundy font-medium">
-                — Hồ Chí Minh, 1943 (Nhật ký trong tù)
-              </p>
+          <ImagePlaceholder
+            figId="H.1.1"
+            label="Hồ Chí Minh tại Quảng Tây (1942–1943)"
+            hint="Ảnh chân dung · 3:4 · ~600×800px"
+            color="burgundy"
+            source="Ngiên Cứu Quốc Tế"
+            sourceUrl="https://nghiencuuquocte.org/2025/05/20/mot-giai-doan-quan-trong-trong-cuoc-doi-chu-tich-ho-chi-minh-tai-quang-tay/"
+            src="/images/goc-re-ly-luan/HCMQuangTay1942.jpg"
+            className="aspect-[3/4] md:aspect-auto"
+          />
+          <div className="bg-burgundy/5 border-l-4 border-burgundy rounded-r-2xl p-8 flex flex-col justify-center">
+            <div className="flex items-start gap-4">
+              <span className="text-6xl text-burgundy/30 font-quote leading-none">
+                "
+              </span>
+              <div>
+                <p className="font-quote italic text-lg text-ink leading-relaxed mb-4">
+                  Vì lẽ sinh tồn cũng như mục đích của cuộc sống, loài người mới
+                  sáng tạo và phát minh ra ngôn ngữ, chữ viết, đạo đức, pháp
+                  luật, khoa học, tôn giáo, văn học, nghệ thuật, những công cụ
+                  cho sinh hoạt hằng ngày về mặc, ăn, ở và các phương thức sử
+                  dụng. Toàn bộ những sáng tạo và phát minh đó tức là văn hóa.
+                </p>
+                <p className="text-burgundy font-medium">
+                  — Hồ Chí Minh, 1943 (Nhật ký trong tù)
+                </p>
+              </div>
             </div>
           </div>
         </motion.div>
@@ -76,7 +128,7 @@ export function GocReLyLuan() {
         <div className="relative">
           <div className="absolute left-0 top-0 bottom-0 w-1 bg-burgundy/20" />
 
-          {/* Milestone 1: Hoàn cảnh lịch sử & Phân tích */}
+          {/* Milestone 1 */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -93,13 +145,23 @@ export function GocReLyLuan() {
               Quốc. Đây là lần đầu tiên Người đưa ra định nghĩa mang tính bao
               quát và định hình nền tảng tư tưởng văn hóa.
             </p>
-            <p className="text-soft-text leading-relaxed">
+            <p className="text-soft-text leading-relaxed mb-6">
               Phân tích học thuật: Định nghĩa này cho thấy Hồ Chí Minh tiếp cận
               văn hóa từ góc độ nhân học và triết học hành vi hành động. Văn hóa
               không phải là cái gì xa xôi, mà là toàn bộ những giá trị vật chất
               và tinh thần được kiến tạo vì động lực sinh tồn và mục đích sống
               của con người.
             </p>
+            <ImagePlaceholder
+              figId="H.1.2"
+              label="Bối cảnh lịch sử 1943 – Việt Nam dưới ách thuộc địa"
+              hint="Ảnh tư liệu lịch sử · 16:9 · ~1200×675px"
+              color="burgundy"
+              source="Wikipedia"
+              src="/images/goc-re-ly-luan/VNTrongThoiKiPhapThuoc.jpg"
+              sourceUrl="https://vi.wikipedia.org/wiki/Ph%C3%A1p_thu%E1%BB%99c"
+              className="aspect-video"
+            />
           </motion.div>
 
           <motion.div
@@ -153,7 +215,6 @@ export function GocReLyLuan() {
                             <span className="text-burgundy">▼</span>
                           </div>
                         </div>
-
                         {isExpanded && (
                           <motion.div
                             initial={{ opacity: 0, height: 0 }}
@@ -174,6 +235,40 @@ export function GocReLyLuan() {
             })}
           </div>
         </div>
+
+        {/* Image Gallery */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.9 }}
+          className="mt-16"
+        >
+          <div className="w-16 h-1 bg-burgundy/30 mb-6" />
+          <h2 className="font-display text-2xl text-burgundy mb-6">
+            Hình ảnh minh họa
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {galleryImages.map((img, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 1 + i * 0.1 }}
+              >
+                <ImagePlaceholder
+                  figId={img.figId}
+                  label={img.label}
+                  hint={img.hint}
+                  color="burgundy"
+                  source={img.source}
+                  sourceUrl={img.sourceUrl}
+                  src={img.src}
+                  className="aspect-[3/2]"
+                />
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </div>
   )

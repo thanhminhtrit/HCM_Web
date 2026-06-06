@@ -22,7 +22,7 @@ export function Footer() {
             <BronzeDrumIcon className="w-12 h-12 text-burgundy opacity-30" />
             <div className="text-center text-sm text-soft-text">
               <p className="font-medium">Tư tưởng Hồ Chí Minh · Chương 6 · Phần Văn hóa</p>
-              <p className="mt-1">Trường Đại học Bách Khoa Hà Nội · 2026</p>
+              <p className="mt-1">Đại học FPT - TP. Hồ Chí Minh · 2026</p>
             </div>
           </div>
         </div>

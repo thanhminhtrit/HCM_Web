@@ -1,42 +1,72 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { motion } from 'motion/react'
 import { useState } from 'react'
+import { ImagePlaceholder } from '../components/ImagePlaceholder'
 
 const cultures = [
   {
     name: 'Pháp',
     influence: 'Tư tưởng tự do, bình đẳng, bác ái và chủ nghĩa nhân văn',
+    figId: 'H.2.2',
+    imageLabel: 'Bác Hồ tại Pháp – Tư tưởng tự do, bình đẳng',
+    imageHint: '1:1 · ~500×500px',
+    source: 'Quân đội Nhân dân',
+    src: '/images/diem-hen-giao-thoa/BacHoTaiPhap.jpg',
+    sourceUrl:
+      'https://www.qdnd.vn/ky-niem-110-nam-ngay-bac-ho-ra-di-tim-duong-cuu-nuoc/hanh-trinh-lich-su/dong-chi-nguyen-ai-quoc-va-dai-hoi-toan-quoc-lan-thu-18-dang-xa-hoi-phap-661016',
   },
   {
     name: 'Anh',
     influence: 'Phong cách làm việc công nghiệp, phương pháp luận thực tiễn',
+    figId: 'H.2.3',
+    imageLabel: 'Cảng London thế kỷ 20 – Phong cách thực tiễn công nghiệp',
+    imageHint: '1:1 · ~500×500px',
+    source: 'Yêu Lịch Sử',
+    src: '/images/diem-hen-giao-thoa/CongNghiepAnh19.webp',
+    sourceUrl: 'https://yeulichsu.edu.vn/cach-mang-cong-nghiep-o-anh',
   },
   {
     name: 'Mỹ',
     influence: 'Tinh thần độc lập dân tộc, quyền tự do và mưu cầu hạnh phúc',
+    figId: 'H.2.4',
+    imageLabel: 'Tuyên ngôn Độc lập Hoa Kỳ 1776 – Nguồn cảm hứng',
+    imageHint: '1:1 · ~500×500px',
+    source: 'Nghiên Cứu Quốc Tế',
+    src: '/images/diem-hen-giao-thoa/TuyenNgonDocLapHoaKi.jpg',
+    sourceUrl:
+      'https://nghiencuuquocte.org/2017/08/02/tuyen-ngon-doc-lap-my-duoc-ky/',
   },
   {
     name: 'Nga',
     influence:
       'Chủ nghĩa Mác - Lênin, Cách mạng Tháng Mười, tư tưởng giải phóng giai cấp',
+    figId: 'H.2.5',
+    imageLabel: 'Cách mạng Tháng Mười Nga 1917 – Chủ nghĩa Mác-Lênin',
+    imageHint: '1:1 · ~500×500px',
+    source: 'Quân đội Nhân dân',
+    src: '/images/diem-hen-giao-thoa/CacMangThang10.jpg',
+    sourceUrl:
+      'https://www.qdnd.vn/quoc-te/doi-song/cach-mang-thang-muoi-nga-khai-mo-mot-thoi-dai-moi-750340',
   },
   {
     name: 'Trung Quốc',
     influence:
       'Nho giáo (triết lý hành động), Phật giáo (từ bi bác ái), Lão giáo (hài hòa thiên nhiên)',
+    figId: 'H.2.6',
+    imageLabel: 'Tam giáo Đông phương – Nho, Phật, Lão',
+    imageHint: '1:1 · ~500×500px',
+    source: 'Phật học',
+    src: '/images/diem-hen-giao-thoa/TamGiaoDongPhuong.png',
+    sourceUrl:
+      'https://tapchinghiencuuphathoc.vn/van-hoc-phat-giao-dang-trong-su-dung-hoa-tu-tuong-phat-nho-dao.html',
   },
 ]
 
 export function DiemHenGiaoThoa() {
   const [currentSlide, setCurrentSlide] = useState(0)
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % cultures.length)
-  }
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + cultures.length) % cultures.length)
-  }
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % cultures.length)
+  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + cultures.length) % cultures.length)
 
   return (
     <div className="min-h-screen bg-ivory py-16 px-6">
@@ -45,7 +75,7 @@ export function DiemHenGiaoThoa() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-12"
+          className="mb-8"
         >
           <div className="w-16 h-1 bg-ochre mb-6" />
           <h1 className="font-display text-4xl md:text-5xl text-ochre mb-6">
@@ -55,6 +85,25 @@ export function DiemHenGiaoThoa() {
             Văn hóa Việt Nam trong tư tưởng Hồ Chí Minh là sự giao thoa giữa bản
             sắc dân tộc và tinh hoa văn hóa thế giới.
           </p>
+        </motion.div>
+
+        {/* Featured Banner Image */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.15 }}
+          className="mb-16"
+        >
+          <ImagePlaceholder
+            figId="H.2.1"
+            label="Bác Hồ trên hành trình tìm đường cứu nước – Giao thoa văn hóa nhân loại"
+            hint="Ảnh tư liệu lịch sử · 16:5 · ~1600×500px"
+            color="ochre"
+            source="Báo Quân đội Nhân dân"
+            src="/images/diem-hen-giao-thoa/BacTrongHanhTrinhCuuNuoc.jpg"
+            sourceUrl="https://media.qdnd.vn/long-form/nguyen-ai-quoc-voi-hanh-trinh-tim-duong-cuu-nuoc-giai-phong-dan-toc-54717"
+            className="aspect-[16/5]"
+          />
         </motion.div>
 
         {/* Nested Rings Diagram */}
@@ -68,25 +117,21 @@ export function DiemHenGiaoThoa() {
             Mối quan hệ biện chứng giữa Văn hóa với Chính trị và Kinh tế
           </h2>
           <div className="relative max-w-2xl mx-auto aspect-square flex items-center justify-center">
-            {/* Outermost ring */}
             <div className="absolute inset-0 rounded-full border-4 border-ochre/30 flex items-center justify-center">
               <span className="absolute top-4 left-1/2 -translate-x-1/2 text-ochre font-medium">
                 Xã hội
               </span>
             </div>
-            {/* Second ring */}
             <div className="absolute inset-12 rounded-full border-4 border-ochre/40 flex items-center justify-center">
               <span className="absolute top-4 left-1/2 -translate-x-1/2 text-ochre font-medium">
                 Kinh tế
               </span>
             </div>
-            {/* Third ring */}
             <div className="absolute inset-24 rounded-full border-4 border-ochre/60 flex items-center justify-center">
               <span className="absolute top-4 left-1/2 -translate-x-1/2 text-ochre font-medium">
                 Chính trị
               </span>
             </div>
-            {/* Center */}
             <div className="absolute inset-36 rounded-full bg-ochre flex items-center justify-center">
               <span className="text-white font-display text-xl text-center px-6">
                 Văn hóa
@@ -139,16 +184,28 @@ export function DiemHenGiaoThoa() {
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -50 }}
-                className="text-center"
+                className="flex flex-col md:flex-row items-center gap-8"
               >
-                <div className="w-24 h-24 rounded-full bg-ochre/20 flex items-center justify-center mx-auto mb-4">
-                  <span className="font-display text-3xl text-ochre">
-                    {cultures[currentSlide].name}
-                  </span>
+                <div className="w-full md:w-56 flex-shrink-0">
+                  <ImagePlaceholder
+                    figId={cultures[currentSlide].figId}
+                    label={cultures[currentSlide].imageLabel}
+                    hint={cultures[currentSlide].imageHint}
+                    color="ochre"
+                    source={cultures[currentSlide].source}
+                    sourceUrl={cultures[currentSlide].sourceUrl}
+                    src={cultures[currentSlide].src}
+                    className="aspect-square"
+                  />
                 </div>
-                <p className="text-lg text-ink">
-                  {cultures[currentSlide].influence}
-                </p>
+                <div className="text-center md:text-left">
+                  <h3 className="font-display text-3xl text-ochre mb-3">
+                    {cultures[currentSlide].name}
+                  </h3>
+                  <p className="text-lg text-ink leading-relaxed">
+                    {cultures[currentSlide].influence}
+                  </p>
+                </div>
               </motion.div>
             </div>
 
@@ -159,7 +216,6 @@ export function DiemHenGiaoThoa() {
               >
                 <ChevronLeft className="w-5 h-5 text-ochre" />
               </button>
-
               <div className="flex gap-2">
                 {cultures.map((_, index) => (
                   <button
@@ -173,7 +229,6 @@ export function DiemHenGiaoThoa() {
                   />
                 ))}
               </div>
-
               <button
                 onClick={nextSlide}
                 className="w-10 h-10 rounded-full bg-ochre/10 hover:bg-ochre/20 flex items-center justify-center transition-colors"
@@ -192,6 +247,16 @@ export function DiemHenGiaoThoa() {
           className="grid md:grid-cols-2 gap-6"
         >
           <div className="bg-white rounded-2xl p-8 border-l-4 border-ochre shadow-md">
+            <ImagePlaceholder
+              figId="H.2.7"
+              label="Bảo tồn bản sắc văn hóa dân tộc – Trống đồng Đông Sơn"
+              hint="4:3 · ~800×600px"
+              color="ochre"
+              source="VOV"
+              src="/images/diem-hen-giao-thoa/BaoTonBanSacDanToc.webp"
+              sourceUrl="https://vov2.vov.vn/van-hoa-giai-tri/am-vang-dong-son-nhung-di-vat-dac-sac-nen-van-hoa-dong-son-46015.vov2"
+              className="aspect-[4/3] mb-6"
+            />
             <h3 className="font-display text-xl text-ochre mb-4">
               Lấy văn hóa dân tộc làm gốc
             </h3>
@@ -219,6 +284,16 @@ export function DiemHenGiaoThoa() {
           </div>
 
           <div className="bg-white rounded-2xl p-8 border-l-4 border-terracotta shadow-md">
+            <ImagePlaceholder
+              figId="H.2.8"
+              label="Tiếp biến tinh hoa văn hóa nhân loại – Giao lưu Đông Tây"
+              hint="4:3 · ~800×600px"
+              color="terracotta"
+              source="Việt Nam Thinh Vượng"
+              src="/images/diem-hen-giao-thoa/GiaoLuuVanHoa.jpg"
+              sourceUrl="https://thinhvuongvietnam.com/Content/qua-trinh-giao-luu-tiep-bien-van-hoa-viet-nam-can-duoc-nhin-nhan-mot-cach-dung-dan-phu-hop-3499"
+              className="aspect-[4/3] mb-6"
+            />
             <h3 className="font-display text-xl text-terracotta mb-4">
               Tiếp biến tinh hoa nhân loại
             </h3>
