@@ -9,47 +9,58 @@ const articles = [
     author: 'Minh An',
     date: '22/05/2026',
     excerpt:
-      'Sử dụng công nghệ đồ họa, truyền thông MXH để quảng bá ẩm thực, lịch sử và âm nhạc truyền thống Việt ra thế giới.',
+      'Vừa qua, tại Thành phố Hồ Chí Minh, Ban Tuyên giáo và Dân vận Trung ương, Hội Nhà báo Việt Nam phối hợp với Đài Phát thanh và Truyền hình Thành phố Hồ Chí Minh tổ chức tọa đàm “Văn hóa trong kỷ nguyên số: Từ bản sắc đến sức mạnh mềm quốc gia”, nhằm cụ thể hóa tinh thần Nghị quyết 80 về phát triển văn hóa gắn với khoa học công nghệ, đổi mới sáng tạo và chuyển đổi số.',
     figId: 'H.4.4',
     imageLabel: 'Ảnh minh họa – Lan tỏa sức mạnh mềm',
     imageHint: '16:9 · ~600×337px',
-    source: 'Ảnh cá nhân thành viên nhóm',
+    source: 'FPT',
+    src: '/images/khat-vong-vuon-xa/SucManhMem.png',
+    sourceUrl: 'https://www.youtube.com/watch?v=Pf6uHcwUbh0',
   },
   {
     tag: 'An ninh tư tưởng',
     title: 'Mặt trận An ninh tư tưởng số của người trẻ',
-    author: 'Quang Huy',
-    date: '22/05/2026',
+    author: 'Kim Chi',
+    date: '23/05/2026',
     excerpt:
-      'Sàng lọc tin giả, kiên định phản bác luận điệu xuyên tạc về lịch sử và lãnh tụ trên TikTok, Facebook.',
+      'Vào sáng ngày 23/05/2026, một sự kiện ý nghĩa mang tên Hội thi “Tiếng nói truyền thông và biên tập trên mặt trận Bảo vệ nền tảng tư tưởng của Đảng năm 2026” đã được tổ chức nhờ sự phối hợp giữa Đoàn thanh niên phường Tây Hồ và Câu lạc bộ Lý luận trẻ thuộc Học viện Hành chính và Quản trị công.',
     figId: 'H.4.5',
     imageLabel: 'Ảnh minh họa – An ninh tư tưởng số',
     imageHint: '16:9 · ~600×337px',
-    source: 'Ảnh cá nhân thành viên nhóm',
+    src: '/images/khat-vong-vuon-xa/GenZBaoVeTuTuong.png',
+    source: 'Đài phát thanh và truyền hình Hà Nội',
+    sourceUrl:
+      'https://hanoionline.vn/tieng-noi-cua-thanh-nien-tren-mat-tran-bao-ve-nen-tang-tu-tuong-cua-dang-400114.htm',
   },
   {
     tag: 'Nghệ thuật cộng đồng',
     title: 'Nghệ thuật số vì cộng đồng – Lịch sử trong tầm tay',
-    author: 'Thu Hà',
-    date: '22/05/2026',
+    author: 'Cao Hương',
+    date: '03/10/2025',
     excerpt:
-      'Chuyển hóa dữ liệu lịch sử thành sản phẩm giải trí số hấp dẫn nhưng vẫn chuẩn mực.',
+      'Phản ánh xu hướng đáng mừng khi thế hệ trẻ (Gen Z) đang chủ động tìm tòi, tiếp cận và "làm mới" nghệ thuật Chèo cổ thông qua dự án truyền thông mang tên “Neo Chèo”. Sự tham gia của người trẻ không chỉ khẳng định sức sống bền bỉ của nghệ thuật di sản dân tộc mà còn định hình lại cách bảo tồn văn hóa trong kỷ nguyên số.',
     figId: 'H.4.6',
     imageLabel: 'Ảnh minh họa – Nghệ thuật số cộng đồng',
     imageHint: '16:9 · ~600×337px',
-    source: 'Ảnh cá nhân thành viên nhóm',
+    source: 'Báo Nhân Dân',
+    src: '/images/khat-vong-vuon-xa/GenZNgheThuat.avif',
+    sourceUrl:
+      'https://nhandan.vn/gen-z-tiep-lua-cho-nghe-thuat-cheo-truyen-thong-post912419.html',
   },
   {
     tag: 'Văn hóa khởi nghiệp',
-    title: 'Văn hóa khởi nghiệp theo tư tưởng đạo đức Hồ Chí Minh',
-    author: 'Phương Linh',
-    date: '22/05/2026',
+    title: 'Lan tỏa khát vọng khởi nghiệp của học sinh Việt Nam',
+    author: 'PV VTV',
+    date: '28/07/2025',
     excerpt:
-      'Xây dựng văn hóa doanh nghiệp lấy đạo đức làm nền tảng, lấy nhân dân làm trọng tâm phục vụ.',
+      'Phản ánh làn sóng khởi nghiệp sớm của học sinh phổ thông tại Việt Nam hiện nay. Các bạn trẻ không đợi đến khi ra trường mà đã chủ động ấp ủ, phát triển các ý tưởng riêng từ rất sớm, trải dài từ các dự án trò chơi nhằm gìn giữ văn hóa dân gian cho đến việc ứng dụng công nghệ hiện đại vào lĩnh vực chăm sóc sức khỏe.',
     figId: 'H.4.7',
     imageLabel: 'Ảnh minh họa – Văn hóa khởi nghiệp',
     imageHint: '16:9 · ~600×337px',
-    source: 'Ảnh cá nhân thành viên nhóm',
+    source: 'VTV News',
+    src: '/images/khat-vong-vuon-xa/BanTreKhoiNgiep.png',
+    sourceUrl:
+      'https://vtv.vn/video/lan-toa-khat-vong-khoi-nghiep-cua-hoc-sinh-viet-nam-108672530.htm',
   },
 ]
 
@@ -165,7 +176,9 @@ export function KhatVongVuonXa() {
               />
               <div className="p-6">
                 <div className="text-4xl mb-3">{item.icon}</div>
-                <h3 className="font-display text-xl text-ochre mb-2">{item.title}</h3>
+                <h3 className="font-display text-xl text-ochre mb-2">
+                  {item.title}
+                </h3>
                 <p className="text-gray-300 text-sm">{item.desc}</p>
               </div>
             </motion.div>
@@ -208,6 +221,8 @@ export function KhatVongVuonXa() {
                   hint={article.imageHint}
                   color="ochre"
                   source={article.source}
+                  sourceUrl={article.sourceUrl}
+                  src={article.src}
                   className="aspect-video rounded-none border-0 border-b border-gray-700"
                 />
 
@@ -233,10 +248,17 @@ export function KhatVongVuonXa() {
                   </p>
 
                   {/* Read more */}
-                  <button className="inline-flex items-center gap-1.5 text-sm text-ochre hover:text-white transition-colors font-medium">
-                    Đọc thêm
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
+                  {article.sourceUrl && (
+                    <a
+                      href={article.sourceUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-sm text-ochre hover:text-white transition-colors font-medium"
+                    >
+                      Đọc thêm
+                      <ArrowRight className="w-4 h-4" />
+                    </a>
+                  )}
                 </div>
               </motion.div>
             ))}
@@ -254,20 +276,28 @@ export function KhatVongVuonXa() {
             <div
               className="absolute inset-0"
               style={{
-                backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
+                backgroundImage:
+                  'radial-gradient(circle, white 1px, transparent 1px)',
                 backgroundSize: '30px 30px',
               }}
             />
           </div>
           <div className="relative z-10">
-            <h3 className="font-display text-4xl text-white mb-6">Vươn Tầm Quốc Tế</h3>
+            <h3 className="font-display text-4xl text-white mb-6">
+              Vươn Tầm Quốc Tế
+            </h3>
             <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed mb-8">
-              Thế hệ trẻ tiếp tục con đường cách mạng Bác Hồ đã vạch ra: phát triển văn hóa
-              đồng bộ với kinh tế, kiên quyết chống lại xâm lăng văn hóa để bảo vệ trọn vẹn
-              di sản Việt Nam.
+              Thế hệ trẻ tiếp tục con đường cách mạng Bác Hồ đã vạch ra: phát
+              triển văn hóa đồng bộ với kinh tế, kiên quyết chống lại xâm lăng
+              văn hóa để bảo vệ trọn vẹn di sản Việt Nam.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              {['Sức mạnh mềm', 'Bảo vệ tư tưởng', 'Hội nhập', 'Khát vọng 2045'].map((tag, i) => (
+              {[
+                'Sức mạnh mềm',
+                'Bảo vệ tư tưởng',
+                'Hội nhập',
+                'Khát vọng 2045',
+              ].map((tag, i) => (
                 <span
                   key={i}
                   className="px-6 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-medium border border-white/30"
