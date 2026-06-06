@@ -9,8 +9,10 @@ const flipCards = [
     figId: 'H.3.3',
     imageLabel: 'Văn hóa dân tộc – Bản sắc và cốt cách Việt Nam',
     imageHint: '4:3 · ~800×600px',
-    source: 'Bảo tàng Dân tộc học Việt Nam',
-    sourceUrl: 'https://vme.org.vn',
+    source: 'Trang thông tin điện tử tổng hợp',
+    sourceUrl:
+      'https://btgdvtukhanhhoa.vn/van-hoa-van-nghe/giu-gin-ban-sac-van-hoa-dan-toc-viet-nam-trong-qua-trinh-toan-cau-hoa',
+    src: '/images/mat-tran-anh-sang/VanHoaDanToc.jpg',
     color: '#7B1E2B',
     colorVariant: 'burgundy' as const,
   },
@@ -20,8 +22,10 @@ const flipCards = [
     figId: 'H.3.4',
     imageLabel: 'Phong trào khoa học – Giáo dục tiến bộ Việt Nam',
     imageHint: '4:3 · ~800×600px',
-    source: 'Trung tâm Lưu trữ Quốc gia III',
-    sourceUrl: 'https://archives.org.vn',
+    source: 'Báo điện tử Chính Phủ',
+    sourceUrl:
+      'https://baochinhphu.vn/chien-luoc-phat-trien-giao-duc-den-nam-2030-tam-nhin-den-nam-2045-102250102165657226.htm',
+    src: '/images/mat-tran-anh-sang/PhongTraoKhoaHocVN.jpg',
     color: '#B5562E',
     colorVariant: 'terracotta' as const,
   },
@@ -31,8 +35,10 @@ const flipCards = [
     figId: 'H.3.5',
     imageLabel: 'Nhân dân lao động – Chủ thể của nền văn hóa mới',
     imageHint: '4:3 · ~800×600px',
-    source: 'Bảo tàng Lịch sử Quốc gia',
-    sourceUrl: 'https://baotanglichsu.vn',
+    source: 'Báo phát thanh truyền hình Ninh Bình',
+    sourceUrl:
+      'https://nbtv.vn/nhan-dan-la-chu-the-sang-tao-gin-giu-trao-truyen-va-phat-huy-nen-van-hoa-dan-toc-50151.html',
+    src: '/images/mat-tran-anh-sang/NDLDChuTheVanHoa.png',
     color: '#C99A3B',
     colorVariant: 'ochre' as const,
   },
@@ -88,7 +94,8 @@ export function MatTranAnhSang() {
             hint="Tranh tuyên truyền / ảnh tư liệu · 16:6 · ~1600×600px"
             color="terracotta"
             source="Bảo tàng Lịch sử Quốc gia"
-            sourceUrl="https://baotanglichsu.vn"
+            src="/images/mat-tran-anh-sang/Poster.jpg"
+            sourceUrl="https://baotanglichsu.vn/vi/Articles/1002/16373/suu-tap-tranh-tuyen-truyen-co-djong-trong-khang-chien-chong-thuc-dan-phap-1946-1954.html"
             className="aspect-[16/6]"
           />
         </motion.div>
@@ -101,7 +108,9 @@ export function MatTranAnhSang() {
           className="mb-16 relative"
         >
           <div className="bg-burgundy text-white rounded-3xl p-12 shadow-2xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 text-[200px] font-display leading-none opacity-10">"</div>
+            <div className="absolute top-0 right-0 text-[200px] font-display leading-none opacity-10">
+              "
+            </div>
             <p className="font-quote italic text-2xl md:text-3xl leading-relaxed relative z-10 mb-6">
               Văn hóa là một mặt trận - Nghệ sĩ là chiến sĩ
             </p>
@@ -119,7 +128,9 @@ export function MatTranAnhSang() {
           <h2 className="font-display text-3xl text-burgundy mb-3 text-center">
             3 Tính chất cốt lõi của văn hóa mới
           </h2>
-          <p className="text-center text-soft-text mb-8">Nhấn vào thẻ để xem chi tiết</p>
+          <p className="text-center text-soft-text mb-8">
+            Nhấn vào thẻ để xem chi tiết
+          </p>
           <div className="grid md:grid-cols-3 gap-6">
             {flipCards.map((card, index) => {
               const isFlipped = flippedCards.has(index)
@@ -134,16 +145,23 @@ export function MatTranAnhSang() {
                   <div
                     onClick={() => toggleCard(index)}
                     className="relative cursor-pointer"
-                    style={{ transformStyle: 'preserve-3d', transition: 'transform 0.6s' }}
+                    style={{
+                      transformStyle: 'preserve-3d',
+                      transition: 'transform 0.6s',
+                    }}
                   >
                     {/* Front */}
                     <div
                       className={`rounded-2xl overflow-hidden transition-all ${
-                        isFlipped ? 'opacity-0 pointer-events-none' : 'opacity-100'
+                        isFlipped
+                          ? 'opacity-0 pointer-events-none'
+                          : 'opacity-100'
                       }`}
                       style={{
                         backfaceVisibility: 'hidden',
-                        transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
+                        transform: isFlipped
+                          ? 'rotateY(180deg)'
+                          : 'rotateY(0deg)',
                         backgroundColor: card.color,
                       }}
                     >
@@ -154,30 +172,39 @@ export function MatTranAnhSang() {
                         color={card.colorVariant}
                         source={card.source}
                         sourceUrl={card.sourceUrl}
+                        src={card.src}
                         className="aspect-[4/3] rounded-none border-0 border-b-2"
                       />
                       <div className="p-8 text-center">
                         <h3 className="font-display text-3xl text-white leading-tight">
                           {card.front}
                         </h3>
-                        <p className="text-white/60 text-sm mt-4">Nhấn để xem thêm</p>
+                        <p className="text-white/60 text-sm mt-4">
+                          Nhấn để xem thêm
+                        </p>
                       </div>
                     </div>
 
                     {/* Back */}
                     <div
                       className={`absolute inset-0 bg-white rounded-2xl p-8 flex items-center justify-center text-center border-4 transition-all ${
-                        !isFlipped ? 'opacity-0 pointer-events-none' : 'opacity-100'
+                        !isFlipped
+                          ? 'opacity-0 pointer-events-none'
+                          : 'opacity-100'
                       }`}
                       style={{
                         backfaceVisibility: 'hidden',
-                        transform: !isFlipped ? 'rotateY(-180deg)' : 'rotateY(0deg)',
+                        transform: !isFlipped
+                          ? 'rotateY(-180deg)'
+                          : 'rotateY(0deg)',
                         borderColor: card.color,
                       }}
                     >
                       <div>
                         <p className="text-ink leading-relaxed">{card.back}</p>
-                        <p className="text-soft-text text-sm mt-4">Nhấn để quay lại</p>
+                        <p className="text-soft-text text-sm mt-4">
+                          Nhấn để quay lại
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -217,8 +244,9 @@ export function MatTranAnhSang() {
                 label="Văn nghệ sĩ trong kháng chiến – Ngòi bút là vũ khí"
                 hint="Ảnh tư liệu · 16:9 · ~800×450px"
                 color="burgundy"
-                source="Bảo tàng Lịch sử Quốc gia"
-                sourceUrl="https://baotanglichsu.vn"
+                source="Thời Báo Ngân Hàng"
+                src="/images/mat-tran-anh-sang/VanNgheSi.jpg"
+                sourceUrl="https://thoibaonganhang.vn/mot-thoi-hao-hung-van-nghe-khang-chien-118807.html"
                 className="aspect-video mt-6"
               />
             </div>
@@ -228,8 +256,9 @@ export function MatTranAnhSang() {
                 label="Hội nghị Văn hóa toàn quốc lần thứ nhất (1946)"
                 hint="Ảnh tư liệu · 4:3 · ~800×600px"
                 color="terracotta"
-                source="Trung tâm Lưu trữ Quốc gia III"
-                sourceUrl="https://archives.org.vn"
+                source="Báo Đại Đoàn Kết"
+                sourceUrl="https://daidoanket.vn/hoi-nghi-van-hoa-toan-quoc-lan-thu-nhat-con-duong-van-hoa-moi-cho-nuoc-nha-10211618.html"
+                src="/images/mat-tran-anh-sang/HoiNghiVanHoaLan1.jpg"
                 className="aspect-[4/3] mb-6"
               />
               <ul className="space-y-4">

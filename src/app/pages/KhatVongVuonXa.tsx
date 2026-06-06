@@ -1,50 +1,54 @@
-import { Pause, Play } from 'lucide-react'
+import { ArrowRight, BookOpen } from 'lucide-react'
 import { motion } from 'motion/react'
-import { useState } from 'react'
 import { ImagePlaceholder } from '../components/ImagePlaceholder'
 
-const podcasts = [
+const articles = [
   {
-    title: "Lan tỏa 'Sức mạnh mềm'",
-    speaker: 'Minh An, 22 tuổi',
-    duration: '12:34',
-    topic:
+    tag: 'Sức mạnh mềm',
+    title: "Lan tỏa 'Sức mạnh mềm' qua công nghệ số",
+    author: 'Minh An',
+    date: '22/05/2026',
+    excerpt:
       'Sử dụng công nghệ đồ họa, truyền thông MXH để quảng bá ẩm thực, lịch sử và âm nhạc truyền thống Việt ra thế giới.',
     figId: 'H.4.4',
-    imageLabel: 'Ảnh đại diện – Minh An',
-    imageHint: '1:1 · ~200×200px',
+    imageLabel: 'Ảnh minh họa – Lan tỏa sức mạnh mềm',
+    imageHint: '16:9 · ~600×337px',
     source: 'Ảnh cá nhân thành viên nhóm',
   },
   {
-    title: 'Mặt trận An ninh tư tưởng số',
-    speaker: 'Quang Huy, 23 tuổi',
-    duration: '15:22',
-    topic:
+    tag: 'An ninh tư tưởng',
+    title: 'Mặt trận An ninh tư tưởng số của người trẻ',
+    author: 'Quang Huy',
+    date: '22/05/2026',
+    excerpt:
       'Sàng lọc tin giả, kiên định phản bác luận điệu xuyên tạc về lịch sử và lãnh tụ trên TikTok, Facebook.',
     figId: 'H.4.5',
-    imageLabel: 'Ảnh đại diện – Quang Huy',
-    imageHint: '1:1 · ~200×200px',
+    imageLabel: 'Ảnh minh họa – An ninh tư tưởng số',
+    imageHint: '16:9 · ~600×337px',
     source: 'Ảnh cá nhân thành viên nhóm',
   },
   {
-    title: 'Nghệ thuật vì cộng đồng',
-    speaker: 'Thu Hà, 21 tuổi',
-    duration: '10:45',
-    topic:
+    tag: 'Nghệ thuật cộng đồng',
+    title: 'Nghệ thuật số vì cộng đồng – Lịch sử trong tầm tay',
+    author: 'Thu Hà',
+    date: '22/05/2026',
+    excerpt:
       'Chuyển hóa dữ liệu lịch sử thành sản phẩm giải trí số hấp dẫn nhưng vẫn chuẩn mực.',
     figId: 'H.4.6',
-    imageLabel: 'Ảnh đại diện – Thu Hà',
-    imageHint: '1:1 · ~200×200px',
+    imageLabel: 'Ảnh minh họa – Nghệ thuật số cộng đồng',
+    imageHint: '16:9 · ~600×337px',
     source: 'Ảnh cá nhân thành viên nhóm',
   },
   {
-    title: 'Văn hóa khởi nghiệp',
-    speaker: 'Phương Linh, 24 tuổi',
-    duration: '13:56',
-    topic: 'Xây dựng văn hóa doanh nghiệp theo tư tưởng đạo đức HCM',
+    tag: 'Văn hóa khởi nghiệp',
+    title: 'Văn hóa khởi nghiệp theo tư tưởng đạo đức Hồ Chí Minh',
+    author: 'Phương Linh',
+    date: '22/05/2026',
+    excerpt:
+      'Xây dựng văn hóa doanh nghiệp lấy đạo đức làm nền tảng, lấy nhân dân làm trọng tâm phục vụ.',
     figId: 'H.4.7',
-    imageLabel: 'Ảnh đại diện – Phương Linh',
-    imageHint: '1:1 · ~200×200px',
+    imageLabel: 'Ảnh minh họa – Văn hóa khởi nghiệp',
+    imageHint: '16:9 · ~600×337px',
     source: 'Ảnh cá nhân thành viên nhóm',
   },
 ]
@@ -57,8 +61,10 @@ const visionItems = [
     figId: 'H.4.2',
     imageLabel: 'Việt Nam hội nhập quốc tế – Ngoại giao văn hóa',
     imageHint: '16:9 · ~600×337px',
-    source: 'TTXVN (Vietnam News Agency)',
-    sourceUrl: 'https://vnanet.vn',
+    source: 'Tuyên Giáo Hưng Yên',
+    src: '/images/khat-vong-vuon-xa/NgoaiGiaoVanHoa.jpg',
+    sourceUrl:
+      'https://tuyengiao.hungyen.dcs.vn/ngoai-giao-cay-tre-voi-boi-canh-hoi-nhap-quoc-te-viet-nam-hien-nay-c219655.html',
   },
   {
     icon: '💡',
@@ -67,8 +73,10 @@ const visionItems = [
     figId: 'H.4.3',
     imageLabel: 'Chuyển đổi số – Văn hóa công nghệ Việt Nam',
     imageHint: '16:9 · ~600×337px',
-    source: 'Bộ Thông tin và Truyền thông',
-    sourceUrl: 'https://mic.gov.vn',
+    source: 'Báo Lao Động',
+    src: '/images/khat-vong-vuon-xa/Chuyen-Doi-So.jpg',
+    sourceUrl:
+      'https://laodong.vn/cong-nghe/chuyen-doi-so-de-lan-toa-gia-tri-van-hoa-lich-su-cua-di-san-1405412.ldo',
   },
   {
     icon: '🚀',
@@ -77,18 +85,14 @@ const visionItems = [
     figId: 'H.4.4',
     imageLabel: 'Thế hệ trẻ Việt Nam – Khát vọng 2045',
     imageHint: '16:9 · ~600×337px',
-    source: 'TTXVN (Vietnam News Agency)',
-    sourceUrl: 'https://vnanet.vn',
+    source: 'Báo Nhân Dân',
+    src: '/images/khat-vong-vuon-xa/TheHeTreVN.jpg',
+    sourceUrl:
+      'https://special.nhandan.vn/tuong-lai-cho-the-he-vuon-minh/index.html',
   },
 ]
 
 export function KhatVongVuonXa() {
-  const [playingIndex, setPlayingIndex] = useState<number | null>(null)
-
-  const togglePlay = (index: number) => {
-    setPlayingIndex(playingIndex === index ? null : index)
-  }
-
   return (
     <div className="min-h-screen bg-dark-bg text-white py-16 px-6">
       <div className="max-w-6xl mx-auto">
@@ -127,8 +131,9 @@ export function KhatVongVuonXa() {
             label="Đại hội XIII – Khát vọng Việt Nam hùng cường đến 2045"
             hint="Ảnh sự kiện · 16:6 · ~1600×600px"
             color="teal"
-            source="TTXVN (Vietnam News Agency)"
-            sourceUrl="https://vnanet.vn"
+            source="Báo Chính Phủ"
+            sourceUrl="https://baochinhphu.vn/10-dau-an-noi-bat-ve-dai-hoi-xiii-cua-dang-102287461.htm"
+            src="/images/khat-vong-vuon-xa/DaiHoiDang.jpg"
             className="aspect-[16/6]"
           />
         </motion.div>
@@ -155,104 +160,86 @@ export function KhatVongVuonXa() {
                 color="teal"
                 source={item.source}
                 sourceUrl={item.sourceUrl}
+                src={item.src}
                 className="aspect-video rounded-none border-0 border-b border-ochre/20"
               />
               <div className="p-6">
                 <div className="text-4xl mb-3">{item.icon}</div>
-                <h3 className="font-display text-xl text-ochre mb-2">
-                  {item.title}
-                </h3>
+                <h3 className="font-display text-xl text-ochre mb-2">{item.title}</h3>
                 <p className="text-gray-300 text-sm">{item.desc}</p>
               </div>
             </motion.div>
           ))}
         </motion.div>
 
-        {/* Gen Z Section */}
+        {/* Gen Z Articles Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
           className="mb-16"
         >
-          <h2 className="font-display text-3xl text-center mb-3">
-            <span className="bg-gradient-to-r from-ochre to-teal bg-clip-text text-transparent">
-              Trách nhiệm và Hành động số của Gen Z
-            </span>
-          </h2>
-          <p className="text-center text-gray-400 mb-8">
-            Những góc nhìn trẻ về văn hóa và bảo vệ nền tảng tư tưởng trên không
-            gian mạng
+          <div className="flex items-center gap-3 justify-center mb-3">
+            <BookOpen className="w-6 h-6 text-ochre" />
+            <h2 className="font-display text-3xl">
+              <span className="bg-gradient-to-r from-ochre to-teal bg-clip-text text-transparent">
+                Góc nhìn Gen Z
+              </span>
+            </h2>
+          </div>
+          <p className="text-center text-gray-400 mb-10">
+            Những bài viết của thế hệ trẻ về văn hóa và bảo vệ nền tảng tư tưởng
+            trên không gian mạng
           </p>
 
           <div className="grid md:grid-cols-2 gap-6">
-            {podcasts.map((podcast, index) => {
-              const isPlaying = playingIndex === index
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.7 + index * 0.1 }}
-                  className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl border border-gray-700 hover:border-ochre/50 transition-all overflow-hidden"
-                >
-                  {/* Podcast thumbnail banner */}
-                  <ImagePlaceholder
-                    figId={podcast.figId}
-                    label={podcast.imageLabel}
-                    hint={podcast.imageHint}
-                    color="ochre"
-                    source={podcast.source}
-                    className="aspect-[3/1] rounded-none border-0 border-b border-gray-700"
-                  />
-                  <div className="p-6">
-                    <div className="flex items-start gap-4">
-                      <button
-                        onClick={() => togglePlay(index)}
-                        className={`flex-shrink-0 w-14 h-14 rounded-full flex items-center justify-center transition-all ${
-                          isPlaying
-                            ? 'bg-ochre text-dark-bg'
-                            : 'bg-ochre/20 text-ochre hover:bg-ochre/30'
-                        }`}
-                      >
-                        {isPlaying ? (
-                          <Pause className="w-6 h-6" />
-                        ) : (
-                          <Play className="w-6 h-6 ml-1" />
-                        )}
-                      </button>
+            {articles.map((article, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7 + index * 0.1 }}
+                className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl border border-gray-700 hover:border-ochre/50 transition-all overflow-hidden group"
+              >
+                {/* Article thumbnail */}
+                <ImagePlaceholder
+                  figId={article.figId}
+                  label={article.imageLabel}
+                  hint={article.imageHint}
+                  color="ochre"
+                  source={article.source}
+                  className="aspect-video rounded-none border-0 border-b border-gray-700"
+                />
 
-                      <div className="flex-1 min-w-0">
-                        <h3 className="font-display text-lg text-white mb-1 truncate">
-                          {podcast.title}
-                        </h3>
-                        <p className="text-ochre text-sm mb-2">
-                          {podcast.speaker}
-                        </p>
-                        <p className="text-gray-400 text-sm leading-relaxed mb-3">
-                          {podcast.topic}
-                        </p>
-                        <div className="flex items-center gap-3">
-                          <div className="flex-1 h-1 bg-gray-700 rounded-full overflow-hidden">
-                            {isPlaying && (
-                              <motion.div
-                                className="h-full bg-ochre"
-                                initial={{ width: '0%' }}
-                                animate={{ width: '60%' }}
-                                transition={{ duration: 2 }}
-                              />
-                            )}
-                          </div>
-                          <span className="text-xs text-gray-500">
-                            {podcast.duration}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              )
-            })}
+                <div className="p-6">
+                  {/* Tag */}
+                  <span className="inline-block text-xs text-ochre border border-ochre/40 rounded-full px-3 py-1 mb-3">
+                    {article.tag}
+                  </span>
+
+                  {/* Title */}
+                  <h3 className="font-display text-lg text-white mb-2 leading-snug group-hover:text-ochre transition-colors">
+                    {article.title}
+                  </h3>
+
+                  {/* Author + Date */}
+                  <p className="text-ochre/70 text-sm mb-3">
+                    ✍️ {article.author} &nbsp;·&nbsp; {article.date}
+                  </p>
+
+                  {/* Excerpt */}
+                  <p className="text-gray-400 text-sm leading-relaxed mb-5">
+                    {article.excerpt}
+                  </p>
+
+                  {/* Read more */}
+                  <button className="inline-flex items-center gap-1.5 text-sm text-ochre hover:text-white transition-colors font-medium">
+                    Đọc thêm
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </motion.div>
 
@@ -267,28 +254,20 @@ export function KhatVongVuonXa() {
             <div
               className="absolute inset-0"
               style={{
-                backgroundImage:
-                  'radial-gradient(circle, white 1px, transparent 1px)',
+                backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
                 backgroundSize: '30px 30px',
               }}
             />
           </div>
           <div className="relative z-10">
-            <h3 className="font-display text-4xl text-white mb-6">
-              Vươn Tầm Quốc Tế
-            </h3>
+            <h3 className="font-display text-4xl text-white mb-6">Vươn Tầm Quốc Tế</h3>
             <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed mb-8">
-              Thế hệ trẻ tiếp tục con đường cách mạng Bác Hồ đã vạch ra: phát
-              triển văn hóa đồng bộ với kinh tế, kiên quyết chống lại xâm lăng
-              văn hóa để bảo vệ trọn vẹn di sản Việt Nam.
+              Thế hệ trẻ tiếp tục con đường cách mạng Bác Hồ đã vạch ra: phát triển văn hóa
+              đồng bộ với kinh tế, kiên quyết chống lại xâm lăng văn hóa để bảo vệ trọn vẹn
+              di sản Việt Nam.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              {[
-                'Sức mạnh mềm',
-                'Bảo vệ tư tưởng',
-                'Hội nhập',
-                'Khát vọng 2045',
-              ].map((tag, i) => (
+              {['Sức mạnh mềm', 'Bảo vệ tư tưởng', 'Hội nhập', 'Khát vọng 2045'].map((tag, i) => (
                 <span
                   key={i}
                   className="px-6 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-medium border border-white/30"
