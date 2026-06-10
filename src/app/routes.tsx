@@ -6,6 +6,7 @@ import { GocReLyLuan } from "./pages/GocReLyLuan";
 import { DiemHenGiaoThoa } from "./pages/DiemHenGiaoThoa";
 import { MatTranAnhSang } from "./pages/MatTranAnhSang";
 import { KhatVongVuonXa } from "./pages/KhatVongVuonXa";
+import { PhuLucAI } from "./pages/PhuLucAI";
 
 export const router = createBrowserRouter([
   {
@@ -18,6 +19,7 @@ export const router = createBrowserRouter([
       { path: "diem-hen-giao-thoa", Component: DiemHenGiaoThoa },
       { path: "mat-tran-anh-sang", Component: MatTranAnhSang },
       { path: "khat-vong-vuon-xa", Component: KhatVongVuonXa },
+      { path: "phu-luc-ai", Component: PhuLucAI },
     ],
   },
 ]);

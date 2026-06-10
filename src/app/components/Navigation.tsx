@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router";
 import { BronzeDrumIcon } from "./BronzeDrumIcon";
 import { JourneyProgress } from "./JourneyProgress";
+import { Bot } from "lucide-react";
 
 export function Navigation() {
   const location = useLocation();
@@ -33,6 +34,16 @@ export function Navigation() {
               }`}
             >
               Bản đồ
+            </Link>
+            <Link
+              to="/phu-luc-ai"
+              aria-label="Phụ lục AI"
+              className={`inline-flex items-center gap-1.5 whitespace-nowrap transition-colors hover:text-burgundy ${
+                location.pathname === "/phu-luc-ai" ? "text-burgundy font-medium" : "text-ink"
+              }`}
+            >
+              <Bot className="w-4 h-4" />
+              <span className="hidden lg:inline">Phụ lục AI</span>
             </Link>
             <Link
               to="/#team"

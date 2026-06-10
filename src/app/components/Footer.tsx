@@ -1,6 +1,8 @@
 import { BronzeDrumIcon } from "./BronzeDrumIcon";
 import { MiniQuiz } from "./MiniQuiz";
 import { TeamSection } from "./TeamSection";
+import { Bot } from "lucide-react";
+import { Link } from "react-router";
 
 export function Footer() {
   return (
@@ -24,6 +26,13 @@ export function Footer() {
               <p className="font-medium">Tư tưởng Hồ Chí Minh · Chương 6 · Phần Văn hóa</p>
               <p className="mt-1">Đại học FPT - TP. Hồ Chí Minh · 2026</p>
             </div>
+            <Link
+              to="/phu-luc-ai"
+              className="inline-flex items-center gap-2 text-sm text-burgundy hover:text-terracotta transition-colors"
+            >
+              <Bot className="w-4 h-4" />
+              Xem phụ lục sử dụng AI
+            </Link>
           </div>
         </div>
       </div>
