@@ -170,12 +170,12 @@ export function GocReLyLuan() {
             </p>
             <ImagePlaceholder
               figId="H.1.2"
-              label="Bối cảnh lịch sử 1943 – Việt Nam dưới ách thuộc địa"
+              label="Nhật kí trong tù (1942–1943)"
               hint="Ảnh tư liệu lịch sử · 16:9 · ~1200×675px"
               color="burgundy"
-              source="Wikipedia"
-              src="/images/goc-re-ly-luan/VNTrongThoiKiPhapThuoc.jpg"
-              sourceUrl="https://vi.wikipedia.org/wiki/Ph%C3%A1p_thu%E1%BB%99c"
+              source="Thông Tấn Xã Việt Nam"
+              src="/images/goc-re-ly-luan/NhatKiTrongTu.jpg"
+              sourceUrl="https://nvsk.vnanet.vn/nhat-ky-trong-tu-1-124757.vna"
               className="aspect-video"
             />
           </motion.div>
@@ -214,51 +214,53 @@ export function GocReLyLuan() {
                         : 'border-burgundy/20 hover:border-burgundy/40'
                     }`}
                   >
-                  <button
-                    onClick={() => setExpandedIndex(isExpanded ? null : index)}
-                    aria-expanded={isExpanded}
-                    aria-controls={`approach-panel-${index}`}
-                    className="w-full text-left p-6"
-                  >
-                        <div className="flex items-center justify-between gap-4">
-                          <div>
-                            <span className="text-xs uppercase tracking-wide text-terracotta">
-                              {approach.lens}
-                            </span>
+                    <button
+                      onClick={() =>
+                        setExpandedIndex(isExpanded ? null : index)
+                      }
+                      aria-expanded={isExpanded}
+                      aria-controls={`approach-panel-${index}`}
+                      className="w-full text-left p-6"
+                    >
+                      <div className="flex items-center justify-between gap-4">
+                        <div>
+                          <span className="text-xs uppercase tracking-wide text-terracotta">
+                            {approach.lens}
+                          </span>
                           <h3 className="font-display text-xl text-burgundy">
                             {approach.title}
                           </h3>
-                          </div>
-                          <div
-                            className={`w-8 h-8 rounded-full bg-burgundy/10 flex items-center justify-center transition-transform ${
-                              isExpanded ? 'rotate-180' : ''
-                            }`}
-                          >
-                            <span className="text-burgundy">▼</span>
-                          </div>
                         </div>
-                  </button>
-                        {isExpanded && (
-                          <motion.div
-                            id={`approach-panel-${index}`}
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: 'auto' }}
-                            exit={{ opacity: 0, height: 0 }}
-                            className="mx-6 pb-6 pt-4 border-t border-burgundy/20"
-                          >
-                            <p className="text-ink leading-relaxed">
-                              {approach.content}
-                            </p>
-                            <div className="mt-4 bg-burgundy/5 border-l-2 border-burgundy p-4">
-                              <p className="text-xs uppercase tracking-wide text-burgundy font-bold mb-1">
-                                Ý nghĩa
-                              </p>
-                              <p className="text-sm text-soft-text leading-relaxed">
-                                {approach.meaning}
-                              </p>
-                            </div>
-                          </motion.div>
-                        )}
+                        <div
+                          className={`w-8 h-8 rounded-full bg-burgundy/10 flex items-center justify-center transition-transform ${
+                            isExpanded ? 'rotate-180' : ''
+                          }`}
+                        >
+                          <span className="text-burgundy">▼</span>
+                        </div>
+                      </div>
+                    </button>
+                    {isExpanded && (
+                      <motion.div
+                        id={`approach-panel-${index}`}
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="mx-6 pb-6 pt-4 border-t border-burgundy/20"
+                      >
+                        <p className="text-ink leading-relaxed">
+                          {approach.content}
+                        </p>
+                        <div className="mt-4 bg-burgundy/5 border-l-2 border-burgundy p-4">
+                          <p className="text-xs uppercase tracking-wide text-burgundy font-bold mb-1">
+                            Ý nghĩa
+                          </p>
+                          <p className="text-sm text-soft-text leading-relaxed">
+                            {approach.meaning}
+                          </p>
+                        </div>
+                      </motion.div>
+                    )}
                   </div>
                 </motion.div>
               )
