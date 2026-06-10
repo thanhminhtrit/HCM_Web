@@ -80,10 +80,10 @@ const visionItems = [
     figId: 'H.4.2',
     imageLabel: 'Việt Nam hội nhập quốc tế – Ngoại giao văn hóa',
     imageHint: '16:9 · ~600×337px',
-    source: 'Tuyên Giáo Hưng Yên',
-    src: '/images/khat-vong-vuon-xa/NgoaiGiaoVanHoa.jpg',
+    source: 'Thành ủy Cần Thơ',
+    src: '/images/khat-vong-vuon-xa/NgoaiGiaoVanHoa2.jpg',
     sourceUrl:
-      'https://tuyengiao.hungyen.dcs.vn/ngoai-giao-cay-tre-voi-boi-canh-hoi-nhap-quoc-te-viet-nam-hien-nay-c219655.html',
+      'https://thanhuycantho.vn/tin-tuc-su-kien/van-hoa-van-nghe/ndid/4541/key/ban_linh_van_hoa_viet_nam_trong_toan_cau_hoa',
   },
   {
     icon: '💡',
