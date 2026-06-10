@@ -10,6 +10,8 @@ const articles = [
     date: '22/05/2026',
     excerpt:
       'Vừa qua, tại Thành phố Hồ Chí Minh, Ban Tuyên giáo và Dân vận Trung ương, Hội Nhà báo Việt Nam phối hợp với Đài Phát thanh và Truyền hình Thành phố Hồ Chí Minh tổ chức tọa đàm “Văn hóa trong kỷ nguyên số: Từ bản sắc đến sức mạnh mềm quốc gia”, nhằm cụ thể hóa tinh thần Nghị quyết 80 về phát triển văn hóa gắn với khoa học công nghệ, đổi mới sáng tạo và chuyển đổi số.',
+    principle: 'Văn hóa là sức mạnh nội sinh',
+    action: 'Biến tri thức và bản sắc thành giá trị có khả năng lan tỏa trên nền tảng số.',
     figId: 'H.4.4',
     imageLabel: 'Ảnh minh họa – Lan tỏa sức mạnh mềm',
     imageHint: '16:9 · ~600×337px',
@@ -24,6 +26,8 @@ const articles = [
     date: '23/05/2026',
     excerpt:
       'Vào sáng ngày 23/05/2026, một sự kiện ý nghĩa mang tên Hội thi “Tiếng nói truyền thông và biên tập trên mặt trận Bảo vệ nền tảng tư tưởng của Đảng năm 2026” đã được tổ chức nhờ sự phối hợp giữa Đoàn thanh niên phường Tây Hồ và Câu lạc bộ Lý luận trẻ thuộc Học viện Hành chính và Quản trị công.',
+    principle: 'Văn hóa là một mặt trận',
+    action: 'Kiểm chứng thông tin, phản hồi bằng hiểu biết và giữ văn hóa ứng xử trên không gian mạng.',
     figId: 'H.4.5',
     imageLabel: 'Ảnh minh họa – An ninh tư tưởng số',
     imageHint: '16:9 · ~600×337px',
@@ -39,6 +43,8 @@ const articles = [
     date: '03/10/2025',
     excerpt:
       'Phản ánh xu hướng đáng mừng khi thế hệ trẻ (Gen Z) đang chủ động tìm tòi, tiếp cận và "làm mới" nghệ thuật Chèo cổ thông qua dự án truyền thông mang tên “Neo Chèo”. Sự tham gia của người trẻ không chỉ khẳng định sức sống bền bỉ của nghệ thuật di sản dân tộc mà còn định hình lại cách bảo tồn văn hóa trong kỷ nguyên số.',
+    principle: 'Lấy văn hóa dân tộc làm gốc',
+    action: 'Dùng hình thức truyền thông mới để đưa di sản đến gần công chúng mà không làm mất giá trị cốt lõi.',
     figId: 'H.4.6',
     imageLabel: 'Ảnh minh họa – Nghệ thuật số cộng đồng',
     imageHint: '16:9 · ~600×337px',
@@ -54,6 +60,8 @@ const articles = [
     date: '28/07/2025',
     excerpt:
       'Phản ánh làn sóng khởi nghiệp sớm của học sinh phổ thông tại Việt Nam hiện nay. Các bạn trẻ không đợi đến khi ra trường mà đã chủ động ấp ủ, phát triển các ý tưởng riêng từ rất sớm, trải dài từ các dự án trò chơi nhằm gìn giữ văn hóa dân gian cho đến việc ứng dụng công nghệ hiện đại vào lĩnh vực chăm sóc sức khỏe.',
+    principle: 'Văn hóa vừa là mục tiêu, vừa là động lực',
+    action: 'Đưa trách nhiệm cộng đồng và bản sắc vào sản phẩm đổi mới sáng tạo.',
     figId: 'H.4.7',
     imageLabel: 'Ảnh minh họa – Văn hóa khởi nghiệp',
     imageHint: '16:9 · ~600×337px',
@@ -185,6 +193,44 @@ export function KhatVongVuonXa() {
           ))}
         </motion.div>
 
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.45 }}
+          className="mb-16 border-y border-ochre/30 py-10"
+        >
+          <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-8 items-start">
+            <div>
+              <p className="text-ochre uppercase tracking-widest text-sm mb-3">Thông điệp vận dụng của nhóm</p>
+              <h2 className="font-display text-3xl md:text-4xl mb-4">
+                Không gian mạng là mặt trận, sinh viên là chiến sĩ số
+              </h2>
+              <p className="text-gray-400 leading-relaxed">
+                Đây không phải trích dẫn trực tiếp của Hồ Chí Minh, mà là cách
+                nhóm vận dụng tư tưởng “Văn hóa là một mặt trận” vào bối cảnh số.
+              </p>
+            </div>
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div className="border border-teal/60 bg-teal/10 p-6">
+                <span className="text-ochre text-sm font-bold">01</span>
+                <h3 className="font-display text-xl mt-3 mb-2">Số hóa và lan tỏa bản sắc</h3>
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  Dùng AI, mạng xã hội và sản phẩm số để làm mới cách kể chuyện,
+                  nhưng giữ đúng giá trị cốt lõi của di sản Việt Nam.
+                </p>
+              </div>
+              <div className="border border-terracotta/60 bg-terracotta/10 p-6">
+                <span className="text-ochre text-sm font-bold">02</span>
+                <h3 className="font-display text-xl mt-3 mb-2">Đấu tranh bằng hiểu biết</h3>
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  Nhận diện thông tin độc hại, chia sẻ nguồn chính thống và phản
+                  hồi bằng thái độ tỉnh táo, văn minh.
+                </p>
+              </div>
+            </div>
+          </div>
+        </motion.section>
+
         {/* Gen Z Articles Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -201,8 +247,7 @@ export function KhatVongVuonXa() {
             </h2>
           </div>
           <p className="text-center text-gray-400 mb-10">
-            Những bài viết của thế hệ trẻ về văn hóa và bảo vệ nền tảng tư tưởng
-            trên không gian mạng
+            Mỗi trường hợp được nối trực tiếp với một luận điểm và một hành động có thể học theo
           </p>
 
           <div className="grid md:grid-cols-2 gap-6">
@@ -246,6 +291,17 @@ export function KhatVongVuonXa() {
                   <p className="text-gray-400 text-sm leading-relaxed mb-5">
                     {article.excerpt}
                   </p>
+
+                  <div className="border-t border-gray-700 pt-4 mb-5 grid sm:grid-cols-2 gap-4">
+                    <div>
+                      <p className="text-[11px] uppercase tracking-wider text-ochre/70 mb-1">Tư tưởng liên quan</p>
+                      <p className="text-sm text-white">{article.principle}</p>
+                    </div>
+                    <div>
+                      <p className="text-[11px] uppercase tracking-wider text-teal mb-1">Hành động rút ra</p>
+                      <p className="text-sm text-gray-300">{article.action}</p>
+                    </div>
+                  </div>
 
                   {/* Read more */}
                   {article.sourceUrl && (

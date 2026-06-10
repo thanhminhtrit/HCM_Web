@@ -5,23 +5,35 @@ import { ImagePlaceholder } from '../components/ImagePlaceholder'
 const approaches = [
   {
     title: 'Tiếp cận theo nghĩa rộng',
+    lens: 'Nghĩa nhân học',
     content:
-      'Văn hóa là tổng thể các phương thức sinh hoạt vật chất và tinh thần của loài người (như định nghĩa năm 1943).',
+      'Văn hóa là tổng thể các phương thức sinh hoạt vật chất và tinh thần do con người sáng tạo để thích ứng với nhu cầu đời sống và đòi hỏi của sự sinh tồn.',
+    meaning:
+      'Cách nhìn này bao quát toàn bộ đời sống và giải thích cách con người làm chủ tự nhiên, làm chủ xã hội.',
   },
   {
     title: 'Tiếp cận theo nghĩa hẹp',
+    lens: 'Nghĩa xã hội học',
     content:
       'Văn hóa là đời sống tinh thần của xã hội, thuộc kiến trúc thượng tầng, song hành và tương tác biện chứng với kinh tế và chính trị.',
+    meaning:
+      'Văn hóa không đứng ngoài xã hội: nó được tạo điều kiện bởi chính trị, kinh tế và đồng thời tác động trở lại hai lĩnh vực ấy.',
   },
   {
-    title: 'Tiếp cận theo nghĩa hẹp hơn',
+    title: 'Tiếp cận theo nghĩa rất hẹp',
+    lens: 'Nghĩa tri thức, giáo dục',
     content:
       'Văn hóa là trình độ học vấn, học thức giáo dục, tri thức khoa học kỹ thuật (được thể hiện qua phong trào Bình dân học vụ, xóa nạn mù chữ).',
+    meaning:
+      'Nâng cao dân trí là điều kiện để nhân dân làm chủ đời sống và tham gia xây dựng một xã hội dân chủ.',
   },
   {
     title: 'Tiếp cận theo phương thức sử dụng',
+    lens: 'Nghĩa lối sống, ứng xử',
     content:
       'Văn hóa là lối sống, nếp sống, phong cách sống, văn hóa ứng xử và cốt cách sinh hoạt hằng ngày của con người.',
+    meaning:
+      'Văn hóa không chỉ nằm trên trang sách mà hiện diện trong cách giao tiếp, tinh thần cần kiệm liêm chính và thái độ sống có tình nghĩa.',
   },
 ]
 
@@ -98,7 +110,7 @@ export function GocReLyLuan() {
             label="Hồ Chí Minh tại Quảng Tây (1942–1943)"
             hint="Ảnh chân dung · 3:4 · ~600×800px"
             color="burgundy"
-            source="Ngiên Cứu Quốc Tế"
+            source="Nghiên Cứu Quốc Tế"
             sourceUrl="https://nghiencuuquocte.org/2025/05/20/mot-giai-doan-quan-trong-trong-cuoc-doi-chu-tich-ho-chi-minh-tai-quang-tay/"
             src="/images/goc-re-ly-luan/HCMQuangTay1942.jpg"
             className="aspect-[3/4] md:aspect-auto"
@@ -115,9 +127,12 @@ export function GocReLyLuan() {
                   luật, khoa học, tôn giáo, văn học, nghệ thuật, những công cụ
                   cho sinh hoạt hằng ngày về mặc, ăn, ở và các phương thức sử
                   dụng. Toàn bộ những sáng tạo và phát minh đó tức là văn hóa.
+                  Văn hóa là sự tổng hợp của mọi phương thức sinh hoạt cùng với
+                  biểu hiện của nó mà loài người đã sản sinh ra nhằm thích ứng
+                  những nhu cầu đời sống và đòi hỏi của sự sinh tồn.
                 </p>
                 <p className="text-burgundy font-medium">
-                  — Hồ Chí Minh, 1943 (Nhật ký trong tù)
+                  — Hồ Chí Minh, tháng 8 năm 1943 (Nhật ký trong tù)
                 </p>
               </div>
             </div>
@@ -141,9 +156,10 @@ export function GocReLyLuan() {
             </h2>
             <p className="text-ink mb-4 font-medium">
               Được Chủ tịch Hồ Chí Minh ghi chép trong những trang cuối cùng của
-              tập thơ Nhật ký trong tù khi bị giam giữ tại Quảng Tây, Trung
-              Quốc. Đây là lần đầu tiên Người đưa ra định nghĩa mang tính bao
-              quát và định hình nền tảng tư tưởng văn hóa.
+              tập thơ Nhật ký trong tù khi bị chính quyền Tưởng Giới Thạch giam
+              giữ và giải qua nhiều nhà lao tại Quảng Tây, Trung Quốc. Đây là
+              lần đầu tiên Người đưa ra định nghĩa mang tính bao quát và định
+              hình nền tảng tư tưởng văn hóa.
             </p>
             <p className="text-soft-text leading-relaxed mb-6">
               Phân tích học thuật: Định nghĩa này cho thấy Hồ Chí Minh tiếp cận
@@ -191,22 +207,28 @@ export function GocReLyLuan() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.4 + index * 0.1 }}
                 >
+                  <div
+                    className={`bg-white rounded-xl border-2 transition-all ${
+                      isExpanded
+                        ? 'border-burgundy shadow-lg'
+                        : 'border-burgundy/20 hover:border-burgundy/40'
+                    }`}
+                  >
                   <button
                     onClick={() => setExpandedIndex(isExpanded ? null : index)}
-                    className="w-full text-left"
+                    aria-expanded={isExpanded}
+                    aria-controls={`approach-panel-${index}`}
+                    className="w-full text-left p-6"
                   >
-                    <div
-                      className={`bg-white rounded-xl border-2 transition-all ${
-                        isExpanded
-                          ? 'border-burgundy shadow-lg'
-                          : 'border-burgundy/20 hover:border-burgundy/40'
-                      }`}
-                    >
-                      <div className="p-6">
-                        <div className="flex items-center justify-between">
+                        <div className="flex items-center justify-between gap-4">
+                          <div>
+                            <span className="text-xs uppercase tracking-wide text-terracotta">
+                              {approach.lens}
+                            </span>
                           <h3 className="font-display text-xl text-burgundy">
                             {approach.title}
                           </h3>
+                          </div>
                           <div
                             className={`w-8 h-8 rounded-full bg-burgundy/10 flex items-center justify-center transition-transform ${
                               isExpanded ? 'rotate-180' : ''
@@ -215,21 +237,29 @@ export function GocReLyLuan() {
                             <span className="text-burgundy">▼</span>
                           </div>
                         </div>
+                  </button>
                         {isExpanded && (
                           <motion.div
+                            id={`approach-panel-${index}`}
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: 'auto' }}
                             exit={{ opacity: 0, height: 0 }}
-                            className="mt-4 pt-4 border-t border-burgundy/20"
+                            className="mx-6 pb-6 pt-4 border-t border-burgundy/20"
                           >
                             <p className="text-ink leading-relaxed">
                               {approach.content}
                             </p>
+                            <div className="mt-4 bg-burgundy/5 border-l-2 border-burgundy p-4">
+                              <p className="text-xs uppercase tracking-wide text-burgundy font-bold mb-1">
+                                Ý nghĩa
+                              </p>
+                              <p className="text-sm text-soft-text leading-relaxed">
+                                {approach.meaning}
+                              </p>
+                            </div>
                           </motion.div>
                         )}
-                      </div>
-                    </div>
-                  </button>
+                  </div>
                 </motion.div>
               )
             })}

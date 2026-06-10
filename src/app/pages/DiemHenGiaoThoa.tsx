@@ -116,28 +116,46 @@ export function DiemHenGiaoThoa() {
           <h2 className="font-display text-2xl text-ochre mb-8 text-center">
             Mối quan hệ biện chứng giữa Văn hóa với Chính trị và Kinh tế
           </h2>
-          <div className="relative max-w-2xl mx-auto aspect-square flex items-center justify-center">
-            <div className="absolute inset-0 rounded-full border-4 border-ochre/30 flex items-center justify-center">
-              <span className="absolute top-4 left-1/2 -translate-x-1/2 text-ochre font-medium">
-                Xã hội
-              </span>
-            </div>
-            <div className="absolute inset-12 rounded-full border-4 border-ochre/40 flex items-center justify-center">
-              <span className="absolute top-4 left-1/2 -translate-x-1/2 text-ochre font-medium">
-                Kinh tế
-              </span>
-            </div>
-            <div className="absolute inset-24 rounded-full border-4 border-ochre/60 flex items-center justify-center">
-              <span className="absolute top-4 left-1/2 -translate-x-1/2 text-ochre font-medium">
-                Chính trị
-              </span>
-            </div>
-            <div className="absolute inset-36 rounded-full bg-ochre flex items-center justify-center">
-              <span className="text-white font-display text-xl text-center px-6">
-                Văn hóa
-              </span>
-            </div>
+          <div className="grid md:grid-cols-3 border-y border-ochre/30 mb-8">
+            {[
+              {
+                name: 'Chính trị',
+                note: 'Mở đường và tạo điều kiện',
+                detail: 'Độc lập dân tộc giải phóng văn hóa khỏi sự nô dịch.',
+              },
+              {
+                name: 'Văn hóa',
+                note: 'Định hướng và tác động trở lại',
+                detail: 'Khai sáng nhận thức, bồi dưỡng con người và phục vụ nhiệm vụ cách mạng.',
+              },
+              {
+                name: 'Kinh tế',
+                note: 'Tạo nền tảng vật chất',
+                detail: 'Kinh tế phát triển tạo điều kiện để văn hóa được kiến thiết.',
+              },
+            ].map((item, index) => (
+              <div
+                key={item.name}
+                className={`relative p-7 text-center ${
+                  index < 2 ? 'md:border-r border-b md:border-b-0 border-ochre/20' : ''
+                } ${item.name === 'Văn hóa' ? 'bg-ochre/10' : ''}`}
+              >
+                {index < 2 && (
+                  <span className="hidden md:block absolute -right-3 top-1/2 -translate-y-1/2 z-10 w-6 h-6 bg-ivory text-ochre">
+                    ↔
+                  </span>
+                )}
+                <p className="text-xs uppercase tracking-widest text-soft-text mb-2">{item.note}</p>
+                <h3 className="font-display text-2xl text-ochre mb-3">{item.name}</h3>
+                <p className="text-sm text-ink leading-relaxed">{item.detail}</p>
+              </div>
+            ))}
           </div>
+          <p className="text-center text-sm text-soft-text max-w-2xl mx-auto">
+            Ba lĩnh vực không nằm lồng trong nhau theo thứ bậc. Chúng tác động
+            qua lại; trong đó văn hóa có tính độc lập tương đối và góp phần thúc
+            đẩy xã hội phát triển bền vững.
+          </p>
 
           <div className="mt-8 grid md:grid-cols-2 gap-6 text-sm">
             <div className="bg-ochre/5 p-6 rounded-xl border border-ochre/20">

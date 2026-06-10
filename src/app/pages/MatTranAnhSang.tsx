@@ -1,6 +1,8 @@
 import { motion } from 'motion/react'
 import { useState } from 'react'
 import { ImagePlaceholder } from '../components/ImagePlaceholder'
+import { CultureBuilder } from '../components/CultureBuilder'
+import { QuoteExplorer } from '../components/QuoteExplorer'
 
 const flipCards = [
   {
@@ -66,15 +68,15 @@ export function MatTranAnhSang() {
           animate={{ opacity: 1, y: 0 }}
           className="mb-10 text-center"
         >
-          <div className="inline-block bg-burgundy text-white px-8 py-2 mb-6 rotate-[-2deg]">
-            <span className="font-display text-sm tracking-widest uppercase">
+          <div className="inline-flex max-w-full bg-burgundy text-white px-4 sm:px-8 py-2 mb-6 md:rotate-[-2deg]">
+            <span className="font-display text-xs sm:text-sm tracking-widest uppercase text-center">
               Vị trí và Vai trò định hướng
             </span>
           </div>
-          <h1 className="font-display text-5xl md:text-6xl text-burgundy mb-6 leading-tight">
+          <h1 className="font-display text-4xl md:text-6xl text-burgundy mb-6 leading-tight">
             Văn hóa soi đường cho quốc dân đi
           </h1>
-          <p className="text-xl text-terracotta font-medium max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-terracotta font-medium max-w-3xl mx-auto leading-relaxed">
             Phát biểu tại Hội nghị Văn hóa toàn quốc lần thứ nhất (1946), Người
             khẳng định văn hóa thấu suốt vào tư tưởng, tâm lý quốc dân, định
             hình tư duy cứu nước và kiến thiết quốc gia.
@@ -118,6 +120,32 @@ export function MatTranAnhSang() {
           </div>
         </motion.div>
 
+        <QuoteExplorer />
+
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.25 }}
+          className="mb-16 grid md:grid-cols-2 border-y border-burgundy/20"
+        >
+          <div className="p-8 md:p-10 md:border-r border-burgundy/20">
+            <p className="text-sm uppercase tracking-widest text-terracotta mb-3">Văn hóa là mục tiêu</p>
+            <h2 className="font-display text-2xl text-burgundy mb-3">Một đời sống tốt đẹp hơn</h2>
+            <p className="text-soft-text leading-relaxed">
+              Cách mạng không chỉ giành độc lập mà còn hướng tới một xã hội nơi
+              con người có tri thức, đạo đức, đời sống văn minh và được phát triển toàn diện.
+            </p>
+          </div>
+          <div className="p-8 md:p-10">
+            <p className="text-sm uppercase tracking-widest text-terracotta mb-3">Văn hóa là động lực</p>
+            <h2 className="font-display text-2xl text-burgundy mb-3">Sức mạnh thúc đẩy hành động</h2>
+            <p className="text-soft-text leading-relaxed">
+              Văn hóa nâng cao dân trí, bồi dưỡng lòng yêu nước, ý chí đấu tranh
+              và niềm tin để nhân dân cùng tham gia xây dựng, bảo vệ đất nước.
+            </p>
+          </div>
+        </motion.section>
+
         {/* Flip Cards */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -142,9 +170,12 @@ export function MatTranAnhSang() {
                   transition={{ delay: 0.5 + index * 0.1 }}
                   style={{ perspective: '1000px' }}
                 >
-                  <div
+                  <button
+                    type="button"
                     onClick={() => toggleCard(index)}
-                    className="relative cursor-pointer"
+                    aria-pressed={isFlipped}
+                    aria-label={`${card.front}: ${isFlipped ? 'đang hiển thị giải thích' : 'xem giải thích'}`}
+                    className="relative cursor-pointer w-full text-left"
                     style={{
                       transformStyle: 'preserve-3d',
                       transition: 'transform 0.6s',
@@ -207,12 +238,14 @@ export function MatTranAnhSang() {
                         </p>
                       </div>
                     </div>
-                  </div>
+                  </button>
                 </motion.div>
               )
             })}
           </div>
         </motion.div>
+
+        <CultureBuilder />
 
         {/* Editorial Layout */}
         <motion.div
@@ -264,8 +297,8 @@ export function MatTranAnhSang() {
               <ul className="space-y-4">
                 {[
                   'Nghệ thuật phải phục vụ nhân dân',
-                  'Văn hóa là mục tiêu tối cao',
-                  'Văn hóa là động lực nội sinh',
+                  'Văn hóa vừa là mục tiêu, vừa là động lực',
+                  'Tác phẩm cần có chất thép và giá trị chân, thiện, mỹ',
                   'Ngòi bút là vũ khí phò chính trừ tà',
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
